@@ -1,0 +1,22 @@
+@import "/annoucement_bar.css";
+@import "trix/dist/trix";
+
+@import "/bootstrap.css";
+@import "/custom.css";
+@import "/footer.css";
+/* @import "/stripe.css"; */
+@import "/style.css";
+@import "/products.css";
+@import "toastr";
+@import "/featherlight.min.css";
+@import "/featherlight.gallery.min.css";
+
+
+.text-ov{
+  overflow: hidden;
+     text-overflow: ellipsis;
+     display: -webkit-box;
+     -webkit-line-clamp: 4; /* number of lines to show */
+             line-clamp: 4;
+     -webkit-box-orient: vertical;
+}

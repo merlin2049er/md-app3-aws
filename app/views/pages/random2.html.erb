@@ -1,0 +1,40 @@
+<!-- <h1>Pages#random</h1>
+ Find me in app/views/pages/random
+-->
+
+<h1 class="page-header">Random Products</h1>
+<h3><%= @random.size %> Random Items...</h3>
+<h5 >
+  <%= link_to "Photos", "/pages/random" %> | Details
+</h5>
+
+<div class="container">
+
+  <div class="row">
+
+<% @random.each do |p| %>
+
+  <div class="col-md-4 col-sm-6 col-xs-12">
+  <!--    <div class="thumbnail"> -->
+
+     <a href= "<%=  product_path(p) %>" >
+        <h5> <%= p.title %> </h5>
+
+  <!--   <img src="<%#= p.picurl  %>" width="250" height="250" alt=""><br>  -->
+
+     </a>
+     <!-- <small><i>Available between:</i> <%#= p.startdate %>  - <%#= p.enddate %></small> -->
+<font color ="grey">
+    <small><i>Available between:</i> <%= p.startdate %>  - <%= p.enddate %></small>
+</font>
+
+      <!-- <div class ="caption" > -->
+    <!-- <%#= truncate(p.template, length: 50 , separator: ' ')  %><br> -->
+   <!-- </div> -->
+   <!-- </div> -->
+
+
+</div>
+<% end %>
+
+</div>

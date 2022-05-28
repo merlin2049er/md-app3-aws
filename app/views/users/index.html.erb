@@ -1,0 +1,57 @@
+<% @user = current_user %>
+<% if user_signed_in? && @user.admin %>
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">User Listing:
+    <% if @total == 0  %>
+      Nothing here...
+    <% else %>
+      <%= @total %>
+    <% end %>
+  </div>
+
+
+    <div class="panel-body">
+
+
+        <table class="table">
+        <thead>
+        <tr>
+          <th>Id </th>
+          <th>Username </th>
+          <th>First name</th>
+          <th>Last name</th>
+          <th>Email</th>
+
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @users.each do |user| %>
+          <tr>
+
+            <td><%= user.id  %></td>
+            <td><%=  user.username %></td>
+            <td><%=  user.firstname  %></td>
+            <td><%=  user.lastname  %></td>
+            <td><%=  user.email  %></td>
+
+
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+  <div class ='pagenav'>
+    <%== pagy_bootstrap_nav(@pagy) %> <br>
+  </div>
+
+
+
+<% else %>
+  <div class="alert alert-warning" role="alert">You must be the administrator to see the users.</div>
+<% end %>

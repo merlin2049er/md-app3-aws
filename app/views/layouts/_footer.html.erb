@@ -1,0 +1,53 @@
+<!-- views/layouts/_footer.html.erb -->
+<footer>
+<div class="mt-5 pt-5 pb-5 footer">
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4 about-company">
+
+      <h4>JG Infosystems</h4>
+      <p class="pr-5 text-white-50">Get in on great group deals... </p>
+      <%= link_to "About", pages_about_path %><br>
+      <%= link_to "Contact", pages_contact_path %><br>
+      <%= link_to "FAQS", '/faqs' %><br>
+      <%= link_to "Feedback Shared", '/feedbacks/feedback_left' %><br>
+      <i><%= link_to "I feel lucky...", '/pages/random' %></i><br>
+      <p><a href="#"><i class="fa fa-facebook-square mr-1">Join us on Facebook</i></a></p>
+
+    </div>
+
+
+    <div class="col-lg-4  links">
+      <h4 class="mt-lg-0 mt-sm-4">Policies</h4>
+
+           <%= link_to "Cookies", pages_cookies_path %><br>
+           <%= link_to "Payments", pages_payments_path %><br>
+           <%= link_to "Privacy", pages_privacy_path %><br>
+           <%= link_to "Returns", pages_returns_path %><br>
+           <%= link_to "Shipping", pages_shipping_path %><br>
+           <%= link_to "Tax", pages_taxes_path %><br>
+           <%= link_to "Terms", pages_terms_path %>
+    </div>
+
+    <div class="col-lg-4  getstarted">
+      <h4 class="mt-lg-0 mt-sm-4">Get Started</h4>
+
+      <p class="pr-5 text-white-50">Get access to awesome deals.</p>
+      <%= link_to "Sign up now", new_user_registration_path , class: "btn btn-primary" %>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col copyright">
+      <br>
+      <%= image_tag "jglogo.png", width: "75", height: "25",  alt:"JG Infosys logo"  %> 
+
+      <p>
+        <small class="text-white-50">JG Infosystems © 2020. All rights reserved.</small>
+      </p>
+    </div>
+
+</div>
+</div>
+</div>
+</footer>

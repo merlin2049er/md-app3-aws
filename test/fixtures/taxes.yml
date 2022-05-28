@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  prov_id: MyString
+  tax_rate: 1.5
+  enabled: false
+  comment: MyString
+
+two:
+  prov_id: MyString
+  tax_rate: 1.5
+  enabled: false
+  comment: MyString

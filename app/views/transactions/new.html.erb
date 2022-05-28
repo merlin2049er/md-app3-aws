@@ -1,0 +1,14 @@
+<% @user = current_user %>
+<% if user_signed_in? && @user.admin %>
+
+
+<h1>New Transaction</h1>
+
+<%= render 'form', transaction: @transaction %>
+
+<%= link_to 'Back', transactions_path %>
+
+
+<% else %>
+  <div class="alert alert-warning" role="alert"> You must be signed in administrator to add a new notification.</div>
+<% end %>

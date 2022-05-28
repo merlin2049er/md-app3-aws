@@ -1,0 +1,9 @@
+<div class="nested-fields">
+    <%= f.input :enabled, label: 'Enable poll option' %>
+    <%= f.input :poll, label: 'poll option' %>
+      <%= f.input :description %>
+    <%= f.input :poll_url_enabled,  label: 'Enable image'%>
+    <%= f.input :poll_url, label: 'poll url, hyperlink to image' %>
+
+  <%= link_to_remove_association "Remove poll option", f %>
+</div>

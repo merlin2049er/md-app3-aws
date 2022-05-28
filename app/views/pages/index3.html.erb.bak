@@ -1,0 +1,57 @@
+
+<style>
+.trix-content {
+ width: 250px;
+}
+</style>
+
+<% if @expired.blank?  %>
+<p>Sorry, we will be updating the shop with some new products shortly.<br><br>
+If your a manufacturer, or a wholesaler/distrubutor of audio gear I'd love to hear from you.
+<br>
+Please use the contact form to get in touch.
+</p>
+
+<% else %>
+
+
+<h3>Expired</h3>
+<h5 >
+  <%= link_to "Recently Added", "/" %>| <%= link_to "Last Chance", "/pages/index2" %>|  Expired
+</h5>
+
+<div class="container">
+
+  <div class="row">
+
+<% @expired.each do |p| %>
+
+  <!-- <div class="col-md-4 col-sm-6 col-xs-12"> -->
+  <!--    <div class="thumbnail"> -->
+   <div class="col-md-4">
+    <h5> <%= p.title %> </h5>
+
+   <img src="<%= p.picurl %> "  width="250" height="250" alt="<%= p.title %>" > <br>
+
+   <div style="color:grey" >
+       <small><i><%= p.body %> </i> </small>
+       <% if user_signed_in? %>
+
+
+      <%= link_to "<button>I'm Interested</button>".html_safe,  controller: "interests", action: "new" , :product_id => p.id , :user_id => @current_user  ,:remote => true %>
+
+       <% else %>
+           <!-- disabled button and tooltip here... -->
+          <button type="button"  data-toggle="tooltip" data-placement="top" title="You must log in to express interest in this product.">
+             I'm interested
+           </button>
+       <% end %>
+
+   </div>
+
+</div>
+<% end %>
+
+</div>
+
+<% end %>

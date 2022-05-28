@@ -1,0 +1,9 @@
+
+    <div class="well well-sm">
+      Quantity: <%= @product.qty %>;   Remaining: <%= @remaining %> <% @percentremaining = (((  @remaining ).to_f) / (( @product.qty).to_f) *100).to_i %>
+      <div class="progress">
+        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"  style="width: <%= @percentremaining %>%" >
+          <%= @remaining %> remaining
+        </div>
+      </div>
+    </div>

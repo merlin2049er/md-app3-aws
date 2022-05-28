@@ -1,0 +1,55 @@
+<!-- found in views/categories/show.html.erb -->
+
+<%= link_to 'Back', categories_path %><br>
+
+<%= @products.count %> products in this category.<br>
+<% if @products.count == 0  %>
+<font color = 'grey' >
+<br>
+<p>Sorry, we will be adding new products to this category shortly...<br><br>
+If your a manufacturer, or a wholesaler/distrubutor of audio gear I'd love to hear from you.
+<br>
+Please use the contact form to get in touch.
+</p>
+</font>
+
+<% end %>
+<br>
+<!-- insert new stuff here -->
+
+<div class="container">
+
+  <div class="row">
+
+
+<% @products.each do |product| %>
+
+ <div class="col-md-4 col-sm-6 col-xs-12">
+	<!-- <div class="thumbnail"> -->
+
+<a  href=  "<%=  product_path(product) %>" >
+			<h5> <%= product.title %> </h5>
+		    <img src="<%= product.picurl  %>" alt="<%= product.title %>"><br>
+</a>
+
+
+<div style="color:grey">
+	<%= truncate(product.template, length: 50 , separator: ' ')  %>
+
+  <small><i>Ending: <%= product.enddate %> </i></small>
+</div>
+
+<!-- </div> -->
+</div>
+
+<% end %>
+</div>
+</div>
+  <br>
+  <% if @products.count > 0  %>
+<div class="pagenav">
+  <%== pagy_bootstrap_nav(@pagy) %> <br>
+
+</div>
+<% end %>
+<!-- end -->

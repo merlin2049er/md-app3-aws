@@ -1,0 +1,23 @@
+
+<div class="well well-sm">
+<i>Photo</i>
+        <section data-featherlight-gallery data-featherlight-filter="a" >
+
+    <a href = "<%= @product.picurl  %>"  >
+      <img src="<%= @product.picurl  %> " width="250" height="250"  align="top" class ="main_img"  alt="<% @product.title %>" >
+      </a>
+
+        <%= render 'products/partials/thumbnails' %>
+        </section>
+ </div >
+
+
+<script>
+ $('a.gallery').featherlightGallery({
+ 		previousIcon: '«',
+ 		nextIcon: '»',
+ 		galleryFadeIn: 300,
+
+ 		openSpeed: 300
+ 	});
+  </script>

@@ -1,0 +1,60 @@
+<% @user = current_user %>
+
+<p id="notice"><%= notice %></p>
+
+  <h2><%= @poll.name %>|<%= @poll.description %> </h2>
+
+<% if @poll.poll_options.any? %>
+   <p><i>Vote from one of the options here... voting helps us gage interest for future campaigns...</i></p>
+
+   <div class="container">
+
+       <% if @voted %>
+        <i>Already voted!</i> <br><br>
+       <% end %>
+
+<% @poll.poll_options.each do |polloption| %>
+
+  <div class="col-md-4 col-sm-6 col-xs-12">
+    <% if  polloption.enabled %>
+
+
+     <tr><%= polloption.poll   %>|<small><i> <%= polloption.description   %></i></small></tr>
+       <% if  polloption.poll_url_enabled %>
+      <tr> <img src="<%= polloption.poll_url  %>" width="250" height="250" alt="polloption.poll"><br></tr>
+
+      <% @polloption_sum = Voted.where(polloption_id: polloption.id).count %>
+
+      <% if @polloption_sum >0 %>
+      <tr> <small> <i> <%= @polloption_sum %> votes in so far...<%= (( @polloption_sum.to_f / @polloption_total.to_f )* 100).round(2) %>% of the vote...</i></small> <br></tr>
+     <% end %>
+
+    <% if @voted.nil? %>
+      <tr><%= form_for Poll.new, :url => {:controller => "polls", :action => "vote" } ,html:{action: "post"} do |f| %><%= f.submit "Vote!" %></tr>
+
+        <%= f.hidden_field :poll_id , :value => @poll.id %>
+        <%= f.hidden_field :user_id , :value => @user.id %>
+        <%= f.hidden_field :polloption_id , :value => polloption.id %>
+
+        <% end %>
+
+        <% end %>
+        <% end %>
+        <% end %>
+        <br>
+</div>
+<% end %>
+
+
+<% else %>
+<i>...no poll options added...</i><br>
+<% end %>
+
+
+</div>
+
+<% if user_signed_in? && @user.admin %>
+
+<%= link_to 'Edit', edit_poll_path(@poll) %> |
+<% end %>
+<%= link_to 'Back', polls_path %>

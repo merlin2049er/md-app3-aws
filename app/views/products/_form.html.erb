@@ -1,0 +1,57 @@
+
+
+<%#= simple_form_for @product, validate: true do |f| %>
+
+<%= simple_form_for @product do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <div class = "field">
+     <%= f.label :category_id %><br>
+     <%= f.collection_select :category_id, Category.all, :id, :name %>
+     </div>
+
+    <%= f.input :active %>
+    <%= f.input :draft %>
+    <%= f.input :picurl %>
+
+    <h4>Additional photo urls (upto 5) </h4>
+      <div id='photos'>
+        <%= f.simple_fields_for :photos do |p| %>
+          <%= render 'photo_fields', :f => p %>
+        <% end %>
+        <div class='links'>
+          <%= link_to_add_association 'Add photo url', f, :photos %>
+        </div>
+      </div>
+
+    <%= f.input :title %>
+    <%= f.input :brand %>
+
+    <%= f.input :qty %>
+    <%#= f.input :template %>
+
+    <div class='form-group' >
+        <%= f.label :body %>
+        <%= f.rich_text_area :body ,class: 'form-control' %>
+    </div>
+
+    <%= f.input :price %>
+    <%= f.input :msrp %>
+    <%= f.input :startdate %>
+    <%= f.input :enddate %>
+
+    <%= f.input :length, :label => "Length (cm)" %>
+    <%= f.input :width, :label => "Width (cm)" %>
+    <%= f.input :height, :label => "Height (cm)" %>
+    <%= f.input :weight, :label => "Weight (kg)" %>
+
+    <%= f.input :courier %>
+    <%= f.input :courierurl %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+
+<% end %>

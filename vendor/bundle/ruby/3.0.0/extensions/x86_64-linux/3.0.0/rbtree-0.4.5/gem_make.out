@@ -1,0 +1,246 @@
+current directory: /home/joe/Desktop/md_app2/vendor/bundle/ruby/3.0.0/gems/rbtree-0.4.5
+/home/joe/.rbenv/versions/3.0.2/bin/ruby -I /home/joe/.rbenv/versions/3.0.2/lib/ruby/3.0.0 -r ./siteconf20220215-5345-1nb2w0.rb extconf.rb
+checking for rb_exec_recursive() in ruby.h... yes
+checking for rb_exec_recursive_paired() in ruby.h... yes
+checking for rb_proc_lambda_p() in ruby.h... yes
+checking for rb_ary_resize() in ruby.h... yes
+checking for rb_obj_hide() in ruby.h... yes
+checking for rb_safe_level() in ruby.h... no
+checking for rb_cData() in ruby.h... yes
+creating Makefile
+
+current directory: /home/joe/Desktop/md_app2/vendor/bundle/ruby/3.0.0/gems/rbtree-0.4.5
+make DESTDIR\= clean
+
+current directory: /home/joe/Desktop/md_app2/vendor/bundle/ruby/3.0.0/gems/rbtree-0.4.5
+make DESTDIR\=
+compiling dict.c
+compiling rbtree.c
+In file included from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/internal/assume.h:29,
+                 from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/backward/2/assume.h:24,
+                 from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/defines.h:72,
+                 from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/ruby.h:23,
+                 from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby.h:38,
+                 from rbtree.c:5:
+rbtree.c: In function ‘rbtree_cmp’:
+rbtree.c:137:14: warning: passing argument 1 of ‘rb_type’ makes integer from pointer without a cast [-Wint-conversion]
+  137 |     if (TYPE(key1) == T_STRING && TYPE(key2) == T_STRING)
+      |              ^~~~
+      |              |
+      |              const void *
+/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/internal/cast.h:33:29: note: in definition of macro ‘RBIMPL_CAST’
+   33 | # define RBIMPL_CAST(expr) (expr)
+      |                             ^~~~
+rbtree.c:137:9: note: in expansion of macro ‘TYPE’
+  137 |     if (TYPE(key1) == T_STRING && TYPE(key2) == T_STRING)
+      |         ^~~~
+In file included from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/internal/fl_type.h:35,
+                 from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/internal/core/rstring.h:30,
+                 from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/internal/arithmetic/char.h:29,
+                 from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/internal/arithmetic.h:23,
+                 from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/ruby.h:25,
+                 from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby.h:38,
+                 from rbtree.c:5:
+/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/internal/value_type.h:178:15: note: expected ‘VALUE’ {aka ‘long unsigned int’} but argument is of type ‘const void *’
+  178 | rb_type(VALUE obj)
+      |         ~~~~~~^~~
+In file included from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/internal/assume.h:29,
+                 from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/backward/2/assume.h:24,
+                 from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/defines.h:72,
+                 from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/ruby.h:23,
+                 from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby.h:38,
+                 from rbtree.c:5:
+rbtree.c:137:40: warning: passing argument 1 of ‘rb_type’ makes integer from pointer without a cast [-Wint-conversion]
+  137 |     if (TYPE(key1) == T_STRING && TYPE(key2) == T_STRING)
+      |                                        ^~~~
+      |                                        |
+      |                                        const void *
+/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/internal/cast.h:33:29: note: in definition of macro ‘RBIMPL_CAST’
+   33 | # define RBIMPL_CAST(expr) (expr)
+      |                             ^~~~
+rbtree.c:137:35: note: in expansion of macro ‘TYPE’
+  137 |     if (TYPE(key1) == T_STRING && TYPE(key2) == T_STRING)
+      |                                   ^~~~
+In file included from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/internal/fl_type.h:35,
+                 from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/internal/core/rstring.h:30,
+                 from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/internal/arithmetic/char.h:29,
+                 from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/internal/arithmetic.h:23,
+                 from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/ruby.h:25,
+                 from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby.h:38,
+                 from rbtree.c:5:
+/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/internal/value_type.h:178:15: note: expected ‘VALUE’ {aka ‘long unsigned int’} but argument is of type ‘const void *’
+  178 | rb_type(VALUE obj)
+      |         ~~~~~~^~~
+rbtree.c: In function ‘rbtree_user_cmp’:
+rbtree.c:168:24: warning: passing argument 1 of ‘rb_ensure’ from incompatible pointer type [-Wincompatible-pointer-types]
+  168 |     result = rb_ensure(rbtree_user_cmp_body, (VALUE)&args,
+      |                        ^~~~~~~~~~~~~~~~~~~~
+      |                        |
+      |                        VALUE (*)(VALUE *) {aka long unsigned int (*)(long unsigned int *)}
+In file included from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/ruby.h:38,
+                 from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby.h:38,
+                 from rbtree.c:5:
+/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/internal/iterator.h:53:17: note: expected ‘VALUE (*)(VALUE)’ {aka ‘long unsigned int (*)(long unsigned int)’} but argument is of type ‘VALUE (*)(VALUE *)’ {aka ‘long unsigned int (*)(long unsigned int *)’}
+   53 | VALUE rb_ensure(VALUE(*)(VALUE),VALUE,VALUE(*)(VALUE),VALUE);
+      |                 ^~~~~~~~~~~~~~~
+rbtree.c:169:24: warning: passing argument 3 of ‘rb_ensure’ from incompatible pointer type [-Wincompatible-pointer-types]
+  169 |                        rbtree_user_cmp_ensure, (VALUE)rbtree);
+      |                        ^~~~~~~~~~~~~~~~~~~~~~
+      |                        |
+      |                        VALUE (*)(rbtree_t *) {aka long unsigned int (*)(struct <anonymous> *)}
+In file included from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/ruby.h:38,
+                 from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby.h:38,
+                 from rbtree.c:5:
+/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/internal/iterator.h:53:39: note: expected ‘VALUE (*)(VALUE)’ {aka ‘long unsigned int (*)(long unsigned int)’} but argument is of type ‘VALUE (*)(rbtree_t *)’ {aka ‘long unsigned int (*)(struct <anonymous> *)’}
+   53 | VALUE rb_ensure(VALUE(*)(VALUE),VALUE,VALUE(*)(VALUE),VALUE);
+      |                                       ^~~~~~~~~~~~~~~
+rbtree.c: In function ‘rbtree_insert’:
+rbtree.c:376:15: warning: passing argument 1 of ‘rb_ensure’ from incompatible pointer type [-Wincompatible-pointer-types]
+  376 |     rb_ensure(insert_node_body, (VALUE)&arg,
+      |               ^~~~~~~~~~~~~~~~
+      |               |
+      |               VALUE (*)(rbtree_insert_arg_t *) {aka long unsigned int (*)(struct <anonymous> *)}
+In file included from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/ruby.h:38,
+                 from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby.h:38,
+                 from rbtree.c:5:
+/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/internal/iterator.h:53:17: note: expected ‘VALUE (*)(VALUE)’ {aka ‘long unsigned int (*)(long unsigned int)’} but argument is of type ‘VALUE (*)(rbtree_insert_arg_t *)’ {aka ‘long unsigned int (*)(struct <anonymous> *)’}
+   53 | VALUE rb_ensure(VALUE(*)(VALUE),VALUE,VALUE(*)(VALUE),VALUE);
+      |                 ^~~~~~~~~~~~~~~
+rbtree.c:377:15: warning: passing argument 3 of ‘rb_ensure’ from incompatible pointer type [-Wincompatible-pointer-types]
+  377 |               insert_node_ensure, (VALUE)&arg);
+      |               ^~~~~~~~~~~~~~~~~~
+      |               |
+      |               VALUE (*)(rbtree_insert_arg_t *) {aka long unsigned int (*)(struct <anonymous> *)}
+In file included from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/ruby.h:38,
+                 from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby.h:38,
+                 from rbtree.c:5:
+/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/internal/iterator.h:53:39: note: expected ‘VALUE (*)(VALUE)’ {aka ‘long unsigned int (*)(long unsigned int)’} but argument is of type ‘VALUE (*)(rbtree_insert_arg_t *)’ {aka ‘long unsigned int (*)(struct <anonymous> *)’}
+   53 | VALUE rb_ensure(VALUE(*)(VALUE),VALUE,VALUE(*)(VALUE),VALUE);
+      |                                       ^~~~~~~~~~~~~~~
+rbtree.c: In function ‘rbtree_for_each’:
+rbtree.c:632:22: warning: passing argument 1 of ‘rb_ensure’ from incompatible pointer type [-Wincompatible-pointer-types]
+  632 |     return rb_ensure(rbtree_each_body, (VALUE)&each_arg,
+      |                      ^~~~~~~~~~~~~~~~
+      |                      |
+      |                      VALUE (*)(rbtree_each_arg_t *) {aka long unsigned int (*)(struct <anonymous> *)}
+In file included from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/ruby.h:38,
+                 from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby.h:38,
+                 from rbtree.c:5:
+/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/internal/iterator.h:53:17: note: expected ‘VALUE (*)(VALUE)’ {aka ‘long unsigned int (*)(long unsigned int)’} but argument is of type ‘VALUE (*)(rbtree_each_arg_t *)’ {aka ‘long unsigned int (*)(struct <anonymous> *)’}
+   53 | VALUE rb_ensure(VALUE(*)(VALUE),VALUE,VALUE(*)(VALUE),VALUE);
+      |                 ^~~~~~~~~~~~~~~
+rbtree.c: In function ‘rbtree_reverse_for_each’:
+rbtree.c:644:22: warning: passing argument 1 of ‘rb_ensure’ from incompatible pointer type [-Wincompatible-pointer-types]
+  644 |     return rb_ensure(rbtree_each_body, (VALUE)&each_arg,
+      |                      ^~~~~~~~~~~~~~~~
+      |                      |
+      |                      VALUE (*)(rbtree_each_arg_t *) {aka long unsigned int (*)(struct <anonymous> *)}
+In file included from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/ruby.h:38,
+                 from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby.h:38,
+                 from rbtree.c:5:
+/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/internal/iterator.h:53:17: note: expected ‘VALUE (*)(VALUE)’ {aka ‘long unsigned int (*)(long unsigned int)’} but argument is of type ‘VALUE (*)(rbtree_each_arg_t *)’ {aka ‘long unsigned int (*)(struct <anonymous> *)’}
+   53 | VALUE rb_ensure(VALUE(*)(VALUE),VALUE,VALUE(*)(VALUE),VALUE);
+      |                 ^~~~~~~~~~~~~~~
+rbtree.c: In function ‘rbtree_remove_if’:
+rbtree.c:948:22: warning: passing argument 1 of ‘rb_ensure’ from incompatible pointer type [-Wincompatible-pointer-types]
+  948 |     return rb_ensure(rbtree_remove_if_body, (VALUE)&arg,
+      |                      ^~~~~~~~~~~~~~~~~~~~~
+      |                      |
+      |                      VALUE (*)(rbtree_remove_if_arg_t *) {aka long unsigned int (*)(struct <anonymous> *)}
+In file included from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/ruby.h:38,
+                 from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby.h:38,
+                 from rbtree.c:5:
+/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/internal/iterator.h:53:17: note: expected ‘VALUE (*)(VALUE)’ {aka ‘long unsigned int (*)(long unsigned int)’} but argument is of type ‘VALUE (*)(rbtree_remove_if_arg_t *)’ {aka ‘long unsigned int (*)(struct <anonymous> *)’}
+   53 | VALUE rb_ensure(VALUE(*)(VALUE),VALUE,VALUE(*)(VALUE),VALUE);
+      |                 ^~~~~~~~~~~~~~~
+rbtree.c:949:22: warning: passing argument 3 of ‘rb_ensure’ from incompatible pointer type [-Wincompatible-pointer-types]
+  949 |                      rbtree_remove_if_ensure, (VALUE)&arg);
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~
+      |                      |
+      |                      VALUE (*)(rbtree_remove_if_arg_t *) {aka long unsigned int (*)(struct <anonymous> *)}
+In file included from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/ruby.h:38,
+                 from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby.h:38,
+                 from rbtree.c:5:
+/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/internal/iterator.h:53:39: note: expected ‘VALUE (*)(VALUE)’ {aka ‘long unsigned int (*)(long unsigned int)’} but argument is of type ‘VALUE (*)(rbtree_remove_if_arg_t *)’ {aka ‘long unsigned int (*)(struct <anonymous> *)’}
+   53 | VALUE rb_ensure(VALUE(*)(VALUE),VALUE,VALUE(*)(VALUE),VALUE);
+      |                                       ^~~~~~~~~~~~~~~
+rbtree.c: In function ‘rbtree_bound’:
+rbtree.c:1569:26: warning: passing argument 1 of ‘rb_ensure’ from incompatible pointer type [-Wincompatible-pointer-types]
+ 1569 |         return rb_ensure(rbtree_bound_body, (VALUE)&arg,
+      |                          ^~~~~~~~~~~~~~~~~
+      |                          |
+      |                          VALUE (*)(rbtree_bound_arg_t *) {aka long unsigned int (*)(struct <anonymous> *)}
+In file included from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/ruby.h:38,
+                 from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby.h:38,
+                 from rbtree.c:5:
+/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/internal/iterator.h:53:17: note: expected ‘VALUE (*)(VALUE)’ {aka ‘long unsigned int (*)(long unsigned int)’} but argument is of type ‘VALUE (*)(rbtree_bound_arg_t *)’ {aka ‘long unsigned int (*)(struct <anonymous> *)’}
+   53 | VALUE rb_ensure(VALUE(*)(VALUE),VALUE,VALUE(*)(VALUE),VALUE);
+      |                 ^~~~~~~~~~~~~~~
+rbtree.c: In function ‘pp_pair’:
+rbtree.c:1736:53: warning: passing argument 3 of ‘rb_iterate’ from incompatible pointer type [-Wincompatible-pointer-types]
+ 1736 |     return rb_iterate(pp_group, (VALUE)&group_args, pp_value, (VALUE)pair_arg);
+      |                                                     ^~~~~~~~
+      |                                                     |
+      |                                                     VALUE (*)(VALUE,  pp_pair_arg_t *) {aka long unsigned int (*)(long unsigned int,  struct <anonymous> *)}
+In file included from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/ruby.h:38,
+                 from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby.h:38,
+                 from rbtree.c:5:
+/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/internal/iterator.h:47:40: note: expected ‘rb_block_call_func_t’ {aka ‘long unsigned int (*)(long unsigned int,  long unsigned int,  int,  const long unsigned int *, long unsigned int)’} but argument is of type ‘VALUE (*)(VALUE,  pp_pair_arg_t *)’ {aka ‘long unsigned int (*)(long unsigned int,  struct <anonymous> *)’}
+   47 | VALUE rb_iterate(VALUE(*)(VALUE),VALUE,rb_block_call_func_t,VALUE);
+      |                                        ^~~~~~~~~~~~~~~~~~~~
+rbtree.c: In function ‘pp_each_pair_i’:
+rbtree.c:1765:46: warning: passing argument 3 of ‘rb_iterate’ from incompatible pointer type [-Wincompatible-pointer-types]
+ 1765 |     rb_iterate(pp_group, (VALUE)&group_args, pp_pair, (VALUE)&pair_arg);
+      |                                              ^~~~~~~
+      |                                              |
+      |                                              VALUE (*)(VALUE,  pp_pair_arg_t *) {aka long unsigned int (*)(long unsigned int,  struct <anonymous> *)}
+In file included from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/ruby.h:38,
+                 from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby.h:38,
+                 from rbtree.c:5:
+/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/internal/iterator.h:47:40: note: expected ‘rb_block_call_func_t’ {aka ‘long unsigned int (*)(long unsigned int,  long unsigned int,  int,  const long unsigned int *, long unsigned int)’} but argument is of type ‘VALUE (*)(VALUE,  pp_pair_arg_t *)’ {aka ‘long unsigned int (*)(long unsigned int,  struct <anonymous> *)’}
+   47 | VALUE rb_iterate(VALUE(*)(VALUE),VALUE,rb_block_call_func_t,VALUE);
+      |                                        ^~~~~~~~~~~~~~~~~~~~
+rbtree.c: In function ‘pp_rbtree’:
+rbtree.c:1796:46: warning: passing argument 3 of ‘rb_iterate’ from incompatible pointer type [-Wincompatible-pointer-types]
+ 1796 |     rb_iterate(pp_group, (VALUE)&group_args, pp_each_pair, (VALUE)rbtree_arg);
+      |                                              ^~~~~~~~~~~~
+      |                                              |
+      |                                              VALUE (*)(VALUE,  pp_rbtree_arg_t *) {aka long unsigned int (*)(long unsigned int,  struct <anonymous> *)}
+In file included from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/ruby.h:38,
+                 from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby.h:38,
+                 from rbtree.c:5:
+/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/internal/iterator.h:47:40: note: expected ‘rb_block_call_func_t’ {aka ‘long unsigned int (*)(long unsigned int,  long unsigned int,  int,  const long unsigned int *, long unsigned int)’} but argument is of type ‘VALUE (*)(VALUE,  pp_rbtree_arg_t *)’ {aka ‘long unsigned int (*)(long unsigned int,  struct <anonymous> *)’}
+   47 | VALUE rb_iterate(VALUE(*)(VALUE),VALUE,rb_block_call_func_t,VALUE);
+      |                                        ^~~~~~~~~~~~~~~~~~~~
+rbtree.c: In function ‘rbtree_pretty_print’:
+rbtree.c:1823:53: warning: passing argument 3 of ‘rb_iterate’ from incompatible pointer type [-Wincompatible-pointer-types]
+ 1823 |     return rb_iterate(pp_rbtree_group, (VALUE)&arg, pp_rbtree, (VALUE)&arg);
+      |                                                     ^~~~~~~~~
+      |                                                     |
+      |                                                     VALUE (*)(VALUE,  pp_rbtree_arg_t *) {aka long unsigned int (*)(long unsigned int,  struct <anonymous> *)}
+In file included from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/ruby.h:38,
+                 from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby.h:38,
+                 from rbtree.c:5:
+/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/internal/iterator.h:47:40: note: expected ‘rb_block_call_func_t’ {aka ‘long unsigned int (*)(long unsigned int,  long unsigned int,  int,  const long unsigned int *, long unsigned int)’} but argument is of type ‘VALUE (*)(VALUE,  pp_rbtree_arg_t *)’ {aka ‘long unsigned int (*)(long unsigned int,  struct <anonymous> *)’}
+   47 | VALUE rb_iterate(VALUE(*)(VALUE),VALUE,rb_block_call_func_t,VALUE);
+      |                                        ^~~~~~~~~~~~~~~~~~~~
+rbtree.c: In function ‘Init_rbtree’:
+rbtree.c:1902:9: warning: ‘rb_cData’ is deprecated: by: rb_cObject.  Will be removed in 3.1. [-Wdeprecated-declarations]
+ 1902 |         rb_cData
+      |         ^~~~~~~~
+In file included from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/internal/core.h:27,
+                 from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/ruby.h:26,
+                 from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby.h:38,
+                 from rbtree.c:5:
+/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/internal/core/rdata.h:169:1: note: declared here
+  169 | rb_cData(void)
+      | ^~~~~~~~
+rbtree.c: At top level:
+cc1: warning: unrecognized command line option ‘-Wno-self-assign’
+cc1: warning: unrecognized command line option ‘-Wno-parentheses-equality’
+cc1: warning: unrecognized command line option ‘-Wno-constant-logical-operand’
+linking shared-object rbtree.so
+
+current directory: /home/joe/Desktop/md_app2/vendor/bundle/ruby/3.0.0/gems/rbtree-0.4.5
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 rbtree.so ./.gem.20220215-5345-vtc4rn

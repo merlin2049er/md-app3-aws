@@ -1,0 +1,41 @@
+
+<p>
+  <strong>User:</strong>
+  <%= @transaction.user_id %>
+</p>
+
+<p>
+  <strong>Shipped:</strong>
+  <%= @transaction.shipped %>
+</p>
+
+<p>
+  <strong>Invoice number:</strong>
+  <%= @transaction.invoice_number %>
+</p>
+
+<p>
+  <strong>Receipt URL:</strong>
+  <%= @transaction.receipt_url %>
+</p>
+
+<p>
+  <strong>Tracking number:</strong>
+  <%= @transaction.tracking_number %>
+</p>
+
+<p>
+  <strong>Postal carrier:</strong>
+  <%= @transaction.postal_carrier %>
+</p>
+
+<p>
+  <strong>Transaction msg:</strong>
+  <%= @transaction.transaction_msg %>
+</p>
+<% @user = current_user %>
+<% if user_signed_in? && @user.admin %>
+  <%= link_to 'Edit', edit_transaction_path(@transaction) %> |
+<% end %>
+
+<%= link_to 'Back', transactions_path %>

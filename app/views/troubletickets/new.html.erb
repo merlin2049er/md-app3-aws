@@ -1,0 +1,15 @@
+<% if user_signed_in? %>
+
+
+
+<h1>New Trouble Ticket</h1>
+
+<%= render 'form', troubleticket: @troubleticket %>
+
+<%= link_to 'Back', troubletickets_path %>
+
+<% else %>
+
+    <div class="alert alert-warning" role="alert">Please sign in to add trouble ticket.</div>
+
+<% end %>

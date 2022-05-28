@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Tipping Point</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_pack_tag 'application',  media: 'all', 'data-turbo': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbo': 'reload' %>
+
+    <%= render 'layouts/google_analcode' %>
+    <%= render 'layouts/hotjar_analcode' %>
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://js.stripe.com/v3" async></script>
+
+<%= favicon_link_tag asset_path('favicon.ico') %>
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <%#= turbo_include_tags %>
+    <%#= stimulus_include_tags %>
+
+</head>
+
+
+  <body>
+
+    <div class="content">
+      <%= render 'layouts/annoucement_bar' %>
+      <%= render 'layouts/nav' %>
+      <%= custom_bootstrap_flash %>
+
+  <div class="container">
+  <br>
+  <ol class="breadcrumb">
+      <%= render_breadcrumbs :tag => :li, :separator => "" %>
+  </ol>
+      <%= yield %>
+</div>
+</div>
+
+    <%= render 'layouts/footer' %>
+
+  </body>
+</html>

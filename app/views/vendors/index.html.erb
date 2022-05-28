@@ -1,0 +1,64 @@
+<% @user = current_user %>
+<% if user_signed_in? && @user.admin %>
+
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Vendor List:
+    <% if @vendors.empty? %>
+      Nothing here...
+    <% else %>
+      <%= @vendors.count %> vendors registered...
+    <% end %>
+
+  </div>
+
+<div class="panel-body">
+  <table class="table" >
+  <thead>
+    <tr>
+      <th>Vendor</th>
+      <th>Contact</th>
+      <th>Address1</th>
+      <th>Address2</th>
+      <th>City</th>
+      <th>State/Prov</th>
+      <th>Country</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Website</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vendors.each do |vendor| %>
+      <tr>
+        <td><%= vendor.vendor %></td>
+        <td><%= vendor.contact_name %></td>
+        <td><%= vendor.address1 %></td>
+        <td><%= vendor.address2 %></td>
+        <td><%= vendor.city %></td>
+        <td><%= vendor.state %></td>
+        <td><%= vendor.country %></td>
+        <td><%= vendor.email %></td>
+        <td><%= vendor.phone %></td>
+        <td><%= vendor.website %></td>
+
+        <td><%= link_to 'Show', vendor %>
+        <%= link_to 'Edit', edit_vendor_path(vendor) %>
+        <%= link_to 'Destroy', vendor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>
+
+<div class ='pagenav'>
+<%== pagy_bootstrap_nav(@pagy) %> <br/>
+</div>
+
+<% else %>
+  <div class="alert alert-warning" role="alert">You must be signed in as the administrator to view the Vendor List.</div>
+<% end %>

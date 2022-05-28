@@ -1,0 +1,25 @@
+
+
+<div class="well well-sm">
+  <i>Previously viewed...</i><br>
+
+  <% x = session[:history].clone.map(&:clone) %>
+
+   <% for i in  x  do %>
+
+     <%  i.sub!("http://localhost:3000/products/", "") %>
+     <%  i.sub!("https://desolate-journey-54830.herokuapp.com/products/", "" ) %>
+
+     <a href="<%= i %>"  data-toggle="tooltip" title="<%= i.titleize %>" >
+     <img src="<%= Product.find_by_title(i.titleize).try(:picurl) %>" alt="<%= i.titleize %>" width="75" height="75">
+     </a>
+
+    <% end %>
+</div>
+
+
+<script>
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();
+});
+</script>

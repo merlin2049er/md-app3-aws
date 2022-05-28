@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  transaction_msg: MyString
+  user_id: 1
+  shipped: false
+  invoice_number: MyString
+  tracking_number: MyString
+  postal_carrier: MyString
+
+two:
+  transaction_msg: MyString
+  user_id: 1
+  shipped: false
+  invoice_number: MyString
+  tracking_number: MyString
+  postal_carrier: MyString

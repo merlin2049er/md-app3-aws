@@ -1,0 +1,10 @@
+<!-- views/layouts/_adminmenu.html.erb -->
+
+<% @user = current_user %>
+<% if user_signed_in? && @user.admin %>
+
+  <li><%=link_to "Admin", '/pages/admin' %></li>
+
+<% end %>
+
+<!-- end -->

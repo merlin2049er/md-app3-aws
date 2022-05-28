@@ -1,0 +1,24 @@
+<!-- found in views/categories/new.html.erb -->
+
+<!-- fix this change to admin user   <#% if user_signed_in? %>  -->
+
+
+     <% @user = current_user %>
+     <% if user_signed_in? && @user.admin %>
+
+
+
+<h1>New Category</h1>
+
+<%= render 'form' %>
+<%= link_to 'Back', categories_path %>
+
+
+<% else %>
+
+
+    <div class="alert alert-warning" role="alert">Please sign in as administrator to add categories.</div>
+
+<% end %>
+
+<!-- end -->

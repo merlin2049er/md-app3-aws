@@ -1,0 +1,84 @@
+
+
+<% @user = current_user %>
+<% if user_signed_in? %>
+
+
+<div class="table-responsive">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Watch List:
+    <% if @watchlists.empty? %>
+      Nothing here...
+    <% else %>
+      <%= @watchlists.count %> items watching...
+    <% end %>
+
+  </div>
+
+
+  <div class="panel-body">
+    <table id="grid-basic" class="table table-condensed table-hover table-striped">
+  <thead>
+    <tr>
+      <th>Created At</th>
+      <th>Item</th>
+      <th>Price</th>
+      <th>End Date</th>
+    
+      <th>Action</th>
+      <!-- <th colspan="3"></th> -->
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @watchlists.each do |watchlist| %>
+      <tr>
+        <td><%= watchlist.created_at.strftime("%m/%d/%Y") %> </td>
+
+
+
+        <% product = Product.where(id: watchlist.product_id).first %>
+
+          <% if not product.funded? %>
+        <td data-column-id="id">
+              <%= link_to( controller: "products", action: "show", id: watchlist.product_id ) do %>
+
+          <%= product.title %><br><img src= "<%= product.picurl%>" alt="<% product.title %>" width="75" height="75"> </td>
+          <% end %>
+          <% else %>
+          <td data-column-id="id"> <%= watchlist.product_id %> </td>
+
+          <% end %>
+
+
+
+
+        <td> <%=  number_to_currency(product.price ) %>  </td>
+
+      <td> <%=  product.enddate %>  <script > var enddate = <%=  product.enddate.to_json.html_safe %> ;console.log(enddate); </script> </td>
+
+
+        <td><%= link_to 'Destroy', watchlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div>
+</div>
+<br>
+
+<div class="pagenav">
+
+<%== pagy_bootstrap_nav(@pagy) %> <br>
+
+<% else %>
+  <div class="alert alert-warning" role="alert">You must be signed in to view the Watch list items.</div>
+<% end %>
+
+
+<!-- <script>
+  $("#grid-basic").bootgrid();
+
+</script> -->

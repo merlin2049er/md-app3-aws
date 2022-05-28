@@ -1,0 +1,19 @@
+
+ <%= simple_form_for @contact   do |f| %>
+ <%= f.error_notification %>
+ <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+
+ <%= f.input :name  %>
+ <%= f.input :email   %>
+ <%= f.input :registered_user %>
+ <%= f.input :supplier, :label => 'Vendor'  %>
+
+ <%= f.input :message   %>
+
+ Before sending this message, please complete this captcha.<br>
+
+ <%= recaptcha_tags %><br>
+ <%= f.submit "Get in touch!", class: "btn btn-info" %><br>
+ <%= link_to "Click here to create a vendor profile", new_vendor_path %>
+ <% end %>

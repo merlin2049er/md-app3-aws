@@ -1,0 +1,9 @@
+
+
+<% @user = current_user %>
+<% if user_signed_in? && @user.admin %>
+
+<li><%=link_to "Analytics", '/pages/analytics' %></li>
+
+
+<% end %>

@@ -1,0 +1,177 @@
+<!-- found in views/cart/index.html.erb -->
+<!--
+<script>
+  $("#grid-basic").bootgrid();
+
+</script>
+-->
+
+<% if user_signed_in? %>
+
+<div class="table-responsive">
+<!--
+<div class="panel panel-default">
+  -->
+
+  <!-- Default panel contents -->
+
+  <div class="panel-heading">Shopping cart:  <% if @carts.empty?  %>
+      Nothing here...
+    <% else %>
+      <%= @carts.count %> items...
+    <% end %>
+
+    <div class="pull-right"><font size="1">If a campaign is successful, you will be emailed a reminder to pay.</font><br>
+    <div class="pull-right"><font size="1">Filters> <%= link_to "All  ", carts_path(:view=>"") %> <%= link_to "Paid  ", carts_path(:view=>"paid") %> <%= link_to "Not Paid  ", carts_path(:view=>"notpaid") %></font><br></div>
+
+
+  </div>
+  <div class="panel-body">
+       <table id="grid-basic" class="table table-condensed table-hover table-striped">
+
+      <thead>
+      <tr>
+        <!-- <th colspan="3"></th> -->
+
+        <th>Added</th>
+      <!--<th> Campaign </th> -->
+        <th>Item</th>
+        <th>Qty</th>
+        <th>Price</th>
+        <th>Sub</th>
+        <th>Taxes</th>
+        <th>Total</th>
+        <th>End date</th>
+        <th>Funded</th>
+        <th>Action</th>
+
+        <th>Status</th>
+        <th>Due date</th>
+
+      </tr>
+      </thead>
+
+      <tbody>
+
+      <% @carts.each do |cart| %>
+
+        <tr class="<%= cycle("even", "odd") %>">
+
+          <td><%= cart.created_at.strftime("%m/%d/%Y") %> </td>
+          <% product = Product.where(id: cart.product_id).first %>
+
+            <% if not product.funded? %>
+
+
+
+          <td>   <%= link_to( controller: "products", action: "show", id: cart.product_id ) do %>
+
+        <%= product.title %><br><img src= "<%= product.picurl%>" alt="<% product.title %>" width="50" height="50">
+
+        <% end %>
+        </td>
+
+        <% else %>
+        <td data-column-id="id"> <%= product.title %><br><img src= "<%= product.picurl%>" alt="<% product.title %>" width="50" height="50">
+</td>
+
+        <% end %>
+
+          <td> <%=  cart.qty  %>  </td>
+          <td> <%=  number_to_currency(product.price ) %>  </td>
+          <td> <%=  number_to_currency(total = product.price * cart.qty)  %>  </td>
+          <td> <%=  number_to_currency(taxes = Calctax.Calctax(total, Lookup.getrate(current_user)) )  %> </td>
+          <td> <%=  number_to_currency(total + taxes) =%> </td>
+	  <td> <%=  product.enddate %>  <script > var enddate = <%=  product.enddate.to_json.html_safe %> ;console.log(enddate); </script> </td>
+          <td> <%=  product.funded  %> </td>
+
+
+          <% if not product.funded? %>
+
+          <td>
+		  <% if not cart.paid? %>
+		  	<%= link_to 'Remove', cart, method: :delete, data: { confirm: 'Are you sure?' } %>
+		<% end %>
+	</td>
+	<% else %>
+            <td>   </td>
+        <% end %>
+
+             <td>
+	<% if not cart.paid? %>
+
+  <!-- if profile not filled in -->
+  <% if current_user and !current_user.is_profile_complete %>
+  <button type="button"  data-toggle="tooltip" data-placement="top" title="You must fill in your profile to continue...">
+    Pay now
+  </button>
+<% else %>
+
+
+  <% if  DateTime.current > product.enddate + 5 %>
+   N/A...
+   <% else %>
+<%= button_to 'Pay now', checkout_create_path, method: :post, params: {id: cart.id}, remote: true, class: "button button1" %>
+      <p class="<%= cart.id %>"></p>
+      <% end %>
+<% end %>
+	<% else %>
+	   Paid!
+
+        <% end %>
+
+      </td>
+      <td>
+        <% if  DateTime.current > product.enddate + 5 %>
+
+        Expired!
+        <% else %>
+        <%= product.enddate + 5  %></td>
+        <% end %>
+        </tr>
+          <% @total_qty = @total_qty + cart.qty %>
+          <% @grand_tax_total = @grand_tax_total + taxes %>
+          <% @grand_sub_total = @grand_sub_total + total %>
+      <% end %>
+      </tbody>
+      <% if @total_qty != 0 %>
+      <tfoot>
+           <tr>
+               <th>Grand Total</th>
+
+               <td></td>
+                <td><%= @total_qty %> </td>
+               <td></td>
+               <td><%= number_to_currency(@grand_sub_total)%> </td>
+               <td><%= number_to_currency(@grand_tax_total) %> </td>
+               <td><%= number_to_currency(@grand_total = @grand_sub_total + @grand_tax_total )%> </td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+
+
+           </tr>
+       </tfoot>
+       <% end %>
+
+    </table>
+  </div>
+
+</div>
+
+<br>
+
+
+  <div class="pagenav">
+
+  <%== pagy_bootstrap_nav(@pagy) %> <br>
+  </div>
+<% else %>
+
+<div class="alert alert-warning" role="alert">You must be signed in to see the shopping cart.</div>
+
+<% end %>
+
+<!-- end -->

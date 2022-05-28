@@ -1,0 +1,33 @@
+
+<p>
+  <strong>Rate:</strong>
+  <%= @feedback.rate %>
+</p>
+
+<p>
+  <strong>Recommned:</strong>
+  <%= @feedback.recommned %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @feedback.comment %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @feedback.transaction_id %>
+</p>
+
+<p>
+  <strong>Share:</strong>
+  <%= @feedback.share %>
+</p>
+
+<p>
+  <strong>Publish:</strong>
+  <%= @feedback.publish %>
+</p>
+
+<%= link_to 'Edit', edit_feedback_path(@feedback) %> |
+<%= link_to 'Back', feedbacks_path %>

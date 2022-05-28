@@ -1,0 +1,15 @@
+current directory: /home/joe/Desktop/md_app2/vendor/bundle/ruby/3.0.0/gems/regexp_property_values-1.2.0/ext/regexp_property_values
+/home/joe/.rbenv/versions/3.0.2/bin/ruby -I /home/joe/.rbenv/versions/3.0.2/lib/ruby/3.0.0 -r ./siteconf20220201-10905-3kvugh.rb extconf.rb
+creating Makefile
+
+current directory: /home/joe/Desktop/md_app2/vendor/bundle/ruby/3.0.0/gems/regexp_property_values-1.2.0/ext/regexp_property_values
+make DESTDIR\= clean
+
+current directory: /home/joe/Desktop/md_app2/vendor/bundle/ruby/3.0.0/gems/regexp_property_values-1.2.0/ext/regexp_property_values
+make DESTDIR\=
+compiling regexp_property_values.c
+linking shared-object regexp_property_values/regexp_property_values.so
+
+current directory: /home/joe/Desktop/md_app2/vendor/bundle/ruby/3.0.0/gems/regexp_property_values-1.2.0/ext/regexp_property_values
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 regexp_property_values.so ./.gem.20220201-10905-h9qjlg/regexp_property_values

@@ -1,0 +1,235 @@
+have_func: checking for rb_exec_recursive() in ruby.h... -------------------- yes
+
+"gcc -o conftest -I/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/x86_64-linux -I/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/backward -I/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0 -I. -I/home/joe/.rbenv/versions/3.0.2/include    -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable  -fPIC conftest.c  -L. -L/home/joe/.rbenv/versions/3.0.2/lib -Wl,-rpath,/home/joe/.rbenv/versions/3.0.2/lib -L. -L/home/joe/.rbenv/versions/3.0.2/lib  -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/home/joe/.rbenv/versions/3.0.2/lib -L/home/joe/.rbenv/versions/3.0.2/lib -lruby  -lm   -lc"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+"gcc -o conftest -I/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/x86_64-linux -I/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/backward -I/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0 -I. -I/home/joe/.rbenv/versions/3.0.2/include    -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable  -fPIC conftest.c  -L. -L/home/joe/.rbenv/versions/3.0.2/lib -Wl,-rpath,/home/joe/.rbenv/versions/3.0.2/lib -L. -L/home/joe/.rbenv/versions/3.0.2/lib  -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/home/joe/.rbenv/versions/3.0.2/lib -L/home/joe/.rbenv/versions/3.0.2/lib -lruby  -lm   -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <ruby.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_exec_recursive; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_exec_recursive_paired() in ruby.h... -------------------- yes
+
+"gcc -o conftest -I/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/x86_64-linux -I/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/backward -I/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0 -I. -I/home/joe/.rbenv/versions/3.0.2/include    -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable  -fPIC conftest.c  -L. -L/home/joe/.rbenv/versions/3.0.2/lib -Wl,-rpath,/home/joe/.rbenv/versions/3.0.2/lib -L. -L/home/joe/.rbenv/versions/3.0.2/lib  -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/home/joe/.rbenv/versions/3.0.2/lib -L/home/joe/.rbenv/versions/3.0.2/lib -lruby  -lm   -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <ruby.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_exec_recursive_paired; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_proc_lambda_p() in ruby.h... -------------------- yes
+
+"gcc -o conftest -I/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/x86_64-linux -I/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/backward -I/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0 -I. -I/home/joe/.rbenv/versions/3.0.2/include    -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable  -fPIC conftest.c  -L. -L/home/joe/.rbenv/versions/3.0.2/lib -Wl,-rpath,/home/joe/.rbenv/versions/3.0.2/lib -L. -L/home/joe/.rbenv/versions/3.0.2/lib  -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/home/joe/.rbenv/versions/3.0.2/lib -L/home/joe/.rbenv/versions/3.0.2/lib -lruby  -lm   -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <ruby.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_proc_lambda_p; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_ary_resize() in ruby.h... -------------------- yes
+
+"gcc -o conftest -I/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/x86_64-linux -I/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/backward -I/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0 -I. -I/home/joe/.rbenv/versions/3.0.2/include    -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable  -fPIC conftest.c  -L. -L/home/joe/.rbenv/versions/3.0.2/lib -Wl,-rpath,/home/joe/.rbenv/versions/3.0.2/lib -L. -L/home/joe/.rbenv/versions/3.0.2/lib  -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/home/joe/.rbenv/versions/3.0.2/lib -L/home/joe/.rbenv/versions/3.0.2/lib -lruby  -lm   -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <ruby.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_ary_resize; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_obj_hide() in ruby.h... -------------------- yes
+
+"gcc -o conftest -I/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/x86_64-linux -I/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/backward -I/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0 -I. -I/home/joe/.rbenv/versions/3.0.2/include    -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable  -fPIC conftest.c  -L. -L/home/joe/.rbenv/versions/3.0.2/lib -Wl,-rpath,/home/joe/.rbenv/versions/3.0.2/lib -L. -L/home/joe/.rbenv/versions/3.0.2/lib  -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/home/joe/.rbenv/versions/3.0.2/lib -L/home/joe/.rbenv/versions/3.0.2/lib -lruby  -lm   -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <ruby.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_obj_hide; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_safe_level() in ruby.h... -------------------- no
+
+"gcc -o conftest -I/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/x86_64-linux -I/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/backward -I/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0 -I. -I/home/joe/.rbenv/versions/3.0.2/include    -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable  -fPIC conftest.c  -L. -L/home/joe/.rbenv/versions/3.0.2/lib -Wl,-rpath,/home/joe/.rbenv/versions/3.0.2/lib -L. -L/home/joe/.rbenv/versions/3.0.2/lib  -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/home/joe/.rbenv/versions/3.0.2/lib -L/home/joe/.rbenv/versions/3.0.2/lib -lruby  -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:16:57: error: ‘rb_safe_level’ undeclared (first use in this function)
+   16 | int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_safe_level; return !p; }
+      |                                                         ^~~~~~~~~~~~~
+conftest.c:16:57: note: each undeclared identifier is reported only once for each function it appears in
+conftest.c: At top level:
+cc1: warning: unrecognized command line option ‘-Wno-self-assign’
+cc1: warning: unrecognized command line option ‘-Wno-parentheses-equality’
+cc1: warning: unrecognized command line option ‘-Wno-constant-logical-operand’
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <ruby.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_safe_level; return !p; }
+/* end */
+
+"gcc -o conftest -I/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/x86_64-linux -I/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/backward -I/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0 -I. -I/home/joe/.rbenv/versions/3.0.2/include    -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable  -fPIC conftest.c  -L. -L/home/joe/.rbenv/versions/3.0.2/lib -Wl,-rpath,/home/joe/.rbenv/versions/3.0.2/lib -L. -L/home/joe/.rbenv/versions/3.0.2/lib  -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/home/joe/.rbenv/versions/3.0.2/lib -L/home/joe/.rbenv/versions/3.0.2/lib -lruby  -lm   -lc"
+/usr/bin/ld: /tmp/ccjtbof9.o: in function `t':
+/home/joe/Desktop/md_app2/vendor/bundle/ruby/3.0.0/gems/rbtree-0.4.5/conftest.c:17: undefined reference to `rb_safe_level'
+collect2: error: ld returned 1 exit status
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <ruby.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: extern void rb_safe_level();
+17: int t(void) { rb_safe_level(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_cData() in ruby.h... -------------------- yes
+
+"gcc -o conftest -I/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/x86_64-linux -I/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/backward -I/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0 -I. -I/home/joe/.rbenv/versions/3.0.2/include    -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable  -fPIC conftest.c  -L. -L/home/joe/.rbenv/versions/3.0.2/lib -Wl,-rpath,/home/joe/.rbenv/versions/3.0.2/lib -L. -L/home/joe/.rbenv/versions/3.0.2/lib  -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/home/joe/.rbenv/versions/3.0.2/lib -L/home/joe/.rbenv/versions/3.0.2/lib -lruby  -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:16:1: warning: ‘rb_cData’ is deprecated: by: rb_cObject.  Will be removed in 3.1. [-Wdeprecated-declarations]
+   16 | int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_cData; return !p; }
+      | ^~~
+In file included from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/internal/core.h:27,
+                 from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/ruby.h:26,
+                 from /home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby.h:38,
+                 from conftest.c:1:
+/home/joe/.rbenv/versions/3.0.2/include/ruby-3.0.0/ruby/internal/core/rdata.h:169:1: note: declared here
+  169 | rb_cData(void)
+      | ^~~~~~~~
+conftest.c: At top level:
+cc1: warning: unrecognized command line option ‘-Wno-self-assign’
+cc1: warning: unrecognized command line option ‘-Wno-parentheses-equality’
+cc1: warning: unrecognized command line option ‘-Wno-constant-logical-operand’
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <ruby.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_cData; return !p; }
+/* end */
+
+--------------------
+

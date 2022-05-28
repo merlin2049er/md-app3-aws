@@ -1,0 +1,48 @@
+<% @user = current_user %>
+<% if user_signed_in? && @user.admin %>
+
+
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Blacklists:
+      <% if @blacklist.empty? %>
+        Nothing here...
+      <% else %>
+        <%= @blacklist.count %> banned users here...
+      <% end %>
+
+    </div>
+
+<div class="panel-body">
+  <table class="table" >
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Comment</th>
+      <th>Action</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @blacklist.each do |blacklist| %>
+      <tr>
+        <td><%= blacklist.email %></td>
+        <td><%= blacklist.comment %></td>
+        <td><%= link_to 'Edit', edit_blacklist_path(blacklist) %> <%= link_to '    Destroy', blacklist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div>
+</div>
+
+
+  <div class="pagenav">
+    <%== pagy_bootstrap_nav(@pagy) %> <br>
+  </div>
+
+<% else %>
+  <div class="alert alert-warning" role="alert"> You must be signed in to view the Blacklists.</div>
+<% end %>

@@ -1,0 +1,31 @@
+
+<%= simple_form_for(@vendor) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :vendor, :label => 'Company' %>
+    <%= f.input :contact_name %>
+    <%= f.input :address1 %>
+    <%= f.input :address2 %>
+    <%= f.input :city %>
+    <%= f.input :state, :collection => canadian_provinces , required: true, :validate => true, label: 'Prov/State' %>
+    <%= f.input :country, :collection => %w[Canada USA], required: true , :validate => true%>
+    <%= f.input :email %>
+    <%= f.input :phone %>
+    <%= f.input :website %>
+    <%= f.input :product , :label => 'Products - short list of items your selling?'%>
+    <%= f.input :dropship , :label => 'Dropship - can you ship the orders for us?'%>
+    <%= f.input :processing ,  input_html: { min: 1,  max: 5}, :label => 'Processing - how many days to process your order?' %>
+    <%= f.input :locally, :label => 'Locally - are your products shipped within Canada or the US?'%>
+    <%= f.input :payments, :label => 'Payments - what are your payment options?' %>
+    <%= f.input :courier, :label => 'Courier - who do you ship with?' %>
+  </div>
+
+Before filling out this form, please complete this captcha.<br>
+
+  <%= recaptcha_tags %><br>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

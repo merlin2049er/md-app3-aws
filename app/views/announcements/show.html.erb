@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <strong>Announcement:</strong>
+  <%= @announcement.announcement %>
+</p>
+
+<p>
+  <strong>Enabled:</strong>
+  <%= @announcement.enabled %>
+</p>
+
+<%= link_to 'Edit', edit_announcement_path(@announcement) %> |
+<%= link_to 'Back', announcements_path %>

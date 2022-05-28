@@ -1,0 +1,38 @@
+<!-- views/layouts/_mainmenu.html.erb -->
+
+<li class="dropdown">
+     <a href="#" class="dropdown-toggle" data-toggle="dropdown"  data-hover="dropdown" data-delay="1000"  role="button" aria-haspopup="true" aria-expanded="false">Help<span class="caret"></span></a>
+     <ul class="dropdown-menu">
+       <!--<li><%#= link_to "Terms", pages_terms_path %></li> -->
+
+       <li>
+               <%= link_to pages_terms_path  do %>
+    <!--   <img src="/bootstrap-icons-1.0.0/file-text.svg" alt="" width="20" height="20" > -->  <span>Terms</span>
+     <% end %>
+     </li>
+
+
+       <!-- <li><%#= link_to "FAQ", faqs_path %></li> -->
+
+
+         <li>
+                 <%= link_to faqs_path  do %>
+      <!--   <img src="/bootstrap-icons-1.0.0/list-stars.svg" alt="" width="20" height="20" > --> <span>FAQ</span>
+       <% end %>
+       </li>
+
+       <li role="separator" class="divider"></li>
+      <!-- <li><%#= link_to "Trouble Tickets", troubletickets_path %></li> -->
+
+
+
+         <li>
+                 <%= link_to troubletickets_path  do %>
+      <!--   <img src="/bootstrap-icons-1.0.0/receipt.svg" alt="" width="20" height="20" >  --> <span>Trouble Tickets</span>
+       <% end %>
+       </li>
+
+     </ul>
+</li>
+
+<!-- end mainmenu -->

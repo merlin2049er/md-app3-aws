@@ -1,0 +1,18 @@
+<%= simple_form_for(@ticketnote,url: troubleticket_ticketnotes_url(troubleticket_id:  params[:troubleticket_id]) ) do |f| %>
+
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+
+
+    <%= f.input :troubleticket_id, :as => :hidden, :readonly => true %>
+    <%#= f.input :admin, :as => :hidden, :readonly => true %>
+    <%#= f.input :admin %>
+
+    <%= f.input :notes %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

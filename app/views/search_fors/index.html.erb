@@ -1,0 +1,53 @@
+<% @user = current_user %>
+<% if user_signed_in? && @user.admin %>
+
+
+<!-- <h1>Search Fors</h1>
+-->
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Search List:
+    <% if @search_fors.empty? %>
+      Nothing here...
+    <% else %>
+      <%= @search_fors.count %> keywords searched for...
+    <% end %>
+
+  </div>
+  <div class="panel-body">
+    <table class="table" >
+  <thead>
+    <tr>
+      <th>Created</th>
+      <th>Search keywords</th>
+      <th>Action</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @search_fors.each do |search_for| %>
+      <tr>
+        <td><%= search_for.created_at %></td>
+        <td><%= search_for.searchterm %></td>
+      <!--  <td><%#= link_to 'Show', search_for %></td>
+        <td><%#= link_to 'Edit', edit_search_for_path(search_for) %></td> -->
+        <td><%= link_to 'Destroy', search_for, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div>
+</div>
+
+<div class ='pagenav'>
+<%== pagy_bootstrap_nav(@pagy) %> <br/>
+</div>
+<!--
+<%#= link_to 'New Search For', new_search_for_path %>
+-->
+<% else %>
+  <div class="alert alert-warning" role="alert">You must be signed in as the administrator to view the Search List.</div>
+<% end %>

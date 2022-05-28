@@ -1,0 +1,13 @@
+<% @user = current_user %>
+<% if user_signed_in? && @user.admin %>
+
+
+<h1>New Blog</h1>
+
+<%= render 'form', blog: @blog %>
+
+<%= link_to 'Back', blogs_path %>
+
+<% else %>
+  <div class="alert alert-warning" role="alert">You must be signed in as the administrator to view create a new blog post</div>
+<% end %>

@@ -1,0 +1,51 @@
+
+<% if user_signed_in? %>
+
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Ticketnotes:  <% if @ticketnotes.empty?  %>
+        Nothing here...
+      <% else %>
+        <%= @ticketnotes.count %> items...
+      <% end %>
+      <div class="pull-right"><font size="1">Personalized ticket notes from us.</font> </div>
+
+    </div>
+    <div class="panel-body">
+
+      <table class="table"  >
+        <thead>
+        <tr>
+          <!-- <th colspan="3"></th> -->
+          <th>Added</th>
+          <th>Trouble ticket id</th>
+          <th>Ticket note</th>
+          <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <% @ticketnotes.each do |ticketnote| %>
+          <tr class="<%= cycle("even", "odd") %>">
+            <td><%= ticketnote.created_at.strftime("%m/%d/%Y")   %> </td>
+             <td> <%= ticketnote.troubleticket_id   %></td>
+             <td> <%= ticketnote.notes   %></td>
+
+        <td><%= link_to 'Remove', ticketnote, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+
+      <!-- <br> -->
+    </div></div>
+
+  <div class="pagenav">
+  <%== pagy_bootstrap_nav(@pagy) %> <br>
+</div>
+
+<% else %>
+
+  <div class="alert alert-warning" role="alert">You must be signed in to see the ticket notes.</div>
+
+<% end %>

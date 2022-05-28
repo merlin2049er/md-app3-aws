@@ -1,0 +1,47 @@
+<!--
+<h1>Pages#faq</h1>
+<p>Find me in app/views/pages/faq.html.erb</p>
+-->
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Faqs:
+      <% if @faqs.empty? %>
+        <p>No questions yet, please use the contact form to ask a question.  </p>
+      <% else %>
+        <%= @faqs.count %> answered here...
+      <% end %>
+
+  </div>
+
+
+<!-- old crappy style
+<%# @faqs.each do |faq| %>
+   &nbsp; &nbsp;  <%#= faq.question %><br>
+
+  &nbsp; <i><%#= faq.answer %></i>
+<br>  <br>
+
+<%# end %>
+
+  </div>
+-->
+</div>
+  <div class="container">
+
+  <% @faqs.each do |faq| %>
+    <button type="button" class="btn btn-light" data-toggle="collapse" data-target="#<%= faq.id %>" ><%= faq.question %></button>
+    <div id=<%= faq.id %> class="collapse">
+       <i><%= faq.answer %></i>
+    </div>
+  <% end %>
+  </div>
+
+
+
+
+<% if @faqs.count > 0 %>
+<div class="pagenav">
+  <%== pagy_bootstrap_nav(@pagy) %> <br>
+</div>
+<% end %>

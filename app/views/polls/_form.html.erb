@@ -1,0 +1,27 @@
+
+<%= simple_form_for(@poll) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :enabled %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+
+
+    <h4>Poll options (upto 5) </h4>
+      <div>
+        <%= f.simple_fields_for :poll_options do |p| %>
+          <%= render 'poll_option_fields', :f => p %>
+        <% end %>
+        <div class='links'>
+          <%= link_to_add_association 'Add poll option', f, :poll_options %>
+        </div>
+      </div>
+
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

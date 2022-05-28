@@ -1,0 +1,20 @@
+
+<%= simple_form_for(@todo_list) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.label :'Priority scale of 1 to 5, with 1 being Urgent and 5 meh, get around to it.' %>
+    <%= f.select :priority, [[5, 5], [4 , 4], [3, 3], [2, 2], [1, 1]], {}, {class: "form-control"} %>
+
+
+    <%= f.input :description %>
+
+    <%= f.input :completed %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

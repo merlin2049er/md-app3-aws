@@ -1,0 +1,13 @@
+<h1>New Search Keyword</h1>
+<% @user = current_user %>
+<% if user_signed_in? && @user.admin %>
+
+
+<%= render 'form', search_for: @search_for %>
+
+<%= link_to 'Back', search_fors_path %>
+
+
+<% else %>
+  <div class="alert alert-warning" role="alert"> You must be signed in to add a search keyword.</div>
+<% end %>

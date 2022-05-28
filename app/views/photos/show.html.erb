@@ -1,0 +1,28 @@
+<% @user = current_user %>
+<% if user_signed_in? && @user.admin %>
+
+<p>
+  <strong>Uri:</strong>
+  <%= @photo.uri %>
+</p>
+
+<p>
+  <strong>Enabled:</strong>
+  <%= @photo.enabled %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @photo.product_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_photo_path(@photo) %> |
+<%= link_to 'Back', photos_path %>
+
+
+<% else %>
+
+<div class="alert alert-warning" role="alert">You must be the administrator to see the photos.</div>
+
+<% end %>

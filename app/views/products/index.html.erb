@@ -1,0 +1,53 @@
+<!-- Find me in app/views/products/index.html.erb -->
+
+  <%= link_to 'Back', categories_path %><br>
+
+  <div>
+  <% if @searchtotal == 0  %>
+  '<%= @q %>' returned nothing... try again...
+  <% else %>
+    <% if @searchtotal > 0 %>
+      <%= @searchtotal.to_s %> products containing '<%= @q %>' found...
+    <% end %>
+    of <%= @total_products.to_s %> products...
+  <% end %>
+  </div>
+
+  <div class="container">
+
+  <div class="row">
+
+  <% @products.each do |product| %>
+
+    <!-- <div class="img"> -->
+    <div class="col-md-4 col-sm-6 col-xs-12">
+      <!--    <div class="thumbnail"> -->
+
+            <a href=  "<%=  product_path(product) %>" >
+
+            <h5> <%= product.title %> </h5>
+
+        <img src="<%= product.picurl  %>" width="250" height="250" alt="<%= product.title %>"><br>
+</a>
+
+  <div style="color:grey">
+          <small><i>Ending: <%= product.enddate %> </i></small>
+
+        </div>
+      <!--  </article> -->
+
+
+
+        <!-- </div> -->
+    </div>
+      <% end %>
+      </div>
+      </div>
+
+  <br>
+  <% if @searchtotal > 0  %>
+  <div class="pagenav">
+    <%== pagy_bootstrap_nav(@pagy) %> <br>
+  </div>
+<% end %>
+<!-- end -->

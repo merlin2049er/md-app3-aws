@@ -1,0 +1,15 @@
+<% if @photo.size > 0 %>
+
+
+    <% @photo.each do | p| %>
+
+
+
+<a href = "<%=  p.uri %>"  >
+  <img src="<%= p.uri %> "   width="150" height="150" align="top" >
+</a>
+
+<% end %>
+
+
+<% end %>

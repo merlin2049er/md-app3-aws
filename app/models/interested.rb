@@ -1,0 +1,2 @@
+class Interested < ApplicationRecord
+end

@@ -1,0 +1,19 @@
+<!-- found in /views/categories/_form.html.erb -->
+
+<%#= simple_form_for @category, validate: true do |f| %>
+
+<%= simple_form_for @category do |f| %>
+
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :picurl %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+<!-- end partial -->

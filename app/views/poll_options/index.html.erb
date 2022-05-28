@@ -1,0 +1,61 @@
+<% @user = current_user %>
+<% if user_signed_in? && @user.admin %>
+
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Poll Options:
+    <% if @poll_options.empty? %>
+      Nothing here...
+    <% else %>
+      <%= @poll_options.count %> poll options...
+    <% end %>
+
+  </div>
+
+  <div class="panel-body">
+    <table class="table" >
+  <thead>
+    <tr>
+      <!-- <th>Id<th> -->
+        <th>Enabled</th>
+      <th>Poll Option</th>
+
+
+      <th>Poll url enabled</th>
+      <th>Poll url</th>
+      <th>Action</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @poll_options.each do |poll_option| %>
+      <tr>
+      <!--  <td><%#= poll_option.id %></td>  -->
+          <td><%= poll_option.enabled %></td>
+        <td><%= poll_option.poll %></td>
+
+
+        <td><%= poll_option.poll_url_enabled %></td>
+        <td><%= poll_option.poll_url %></td>
+
+        <td><%= link_to 'Vote', poll_option %></td>
+        <td><%= link_to 'Edit', edit_poll_option_path(poll_option) %></td>
+        <td><%= link_to 'Destroy', poll_option, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div>
+</div>
+
+<div class ='pagenav'>
+<%== pagy_bootstrap_nav(@pagy) %> <br/>
+</div>
+<%#= link_to 'New ToDo item', new_todo_list_path %>
+
+<% else %>
+  <div class="alert alert-warning" role="alert">You must be signed in as the administrator to view the Poll options list.</div>
+<% end %>

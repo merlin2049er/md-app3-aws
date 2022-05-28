@@ -1,0 +1,19 @@
+<!--
+<h1>Pages#about</h1>
+<p>Find me in app/views/pages/about.html.erb</p>
+-->
+
+<h1 class="page-header">About Us</h1>
+<h3>If you build it, he will come.</h3>
+
+<div class="container">
+  <div class="jumbotron">
+    <h1>Tipping Point</h1>
+    <p>Tipping Point was built to get you in on some great group deals easily.</p>
+  </div>
+  <p>How easily?  Just join and add a product to your cart and wait until the campaign is successful.</p>
+  <p>You'll get an email when the campaign is successful, then just log back in and pay. </p>
+  <p>In a rush? Add to the cart and pay right away! </p>
+  <p>For more answers to your questions, please visit our Policies,  <%= link_to 'Terms and Conditions', pages_terms_path %>, <%= link_to 'FAQs', faqs_path %> or  <%= link_to 'leave a message', pages_contact_path %>... </p>
+</div>
+<%= link_to "Click here to create a vendor profile", new_vendor_path %>

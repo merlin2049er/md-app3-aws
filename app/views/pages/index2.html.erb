@@ -1,0 +1,45 @@
+<% if @last_chance.blank?  %>
+<p>Sorry, we will be updating the shop with some new products shortly.<br><br>
+If your a manufacturer, or a wholesaler/distrubutor of audio gear I'd love to hear from you.
+<br>
+Please use the contact form to get in touch.
+</p>
+
+<% else %>
+
+
+<h3>Last Chance</h3>
+<h5 >
+  <%= link_to "Recently Added", "/" %>| Last Chance |   <%= link_to "Expired", "/pages/index3" %>
+</h5>
+
+<div class="container">
+
+  <div class="row">
+
+<% @last_chance.each do |p| %>
+
+  <div class="col-md-4 col-sm-6 col-xs-12">
+  <!--    <div class="thumbnail"> -->
+
+
+     <a href= "<%=  product_path(p) %>" >
+        <h5> <%= p.title %> </h5>
+
+   <img src="<%= p.picurl %> "  width="250" height="250" alt="<%= p.title %>" > <br>
+
+     </a>
+
+<div style="color:grey">
+    <small><i>Available between:</i> <%= p.startdate %>  - <%= p.enddate %></small>
+</div>
+
+
+
+
+</div>
+<% end %>
+
+</div>
+
+<% end %>

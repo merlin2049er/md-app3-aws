@@ -1,0 +1,56 @@
+
+<% @user = current_user %>
+<% if user_signed_in? && @user.admin %>
+
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">ToDo Lists:
+    <% if @todo_lists.empty? %>
+      Nothing here...
+    <% else %>
+      <%= @todo_lists.count %> things to do...
+    <% end %>
+
+  </div>
+
+
+  <div class="panel-body">
+    <table class="table" >
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Priority</th>
+      <th>Completed</th>
+      <th>Action</th>
+      <!-- <th colspan="3"></th> -->
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @todo_lists.each do |todo_list| %>
+      <tr>
+        <td><%= todo_list.title %></td>
+        <td><%= todo_list.description %></td>
+        <td><%= todo_list.priority %></td>
+        <td><%= todo_list.completed %></td>
+
+        <td><%= link_to 'Show  ', todo_list %> <%= link_to 'Edit  ', edit_todo_list_path(todo_list) %> <%= link_to 'Destroy', todo_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div>
+</div>
+
+<div class ='pagenav'>
+<%== pagy_bootstrap_nav(@pagy) %> <br/>
+</div>
+<%#= link_to 'New ToDo item', new_todo_list_path %>
+
+<% else %>
+  <div class="alert alert-warning" role="alert">You must be signed in as the administrator to view the ToDo List.</div>
+<% end %>

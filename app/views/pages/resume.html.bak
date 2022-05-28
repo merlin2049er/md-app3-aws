@@ -1,0 +1,66 @@
+<h1 class="page-header">Resume</h1>
+                  <!--  <h3>Join You?</h3> -->
+
+         <!-- Resume goes here ... -->
+
+<%= image_tag "ring.jpg", width: 75, height: 75  %><br>
+<%= link_to "Resume PDF", download_pdf_path %><br>
+<h3>Joe Guerra</h3>
+
+<H4>Ruby on Rails Developer @ JG Infosystems</h4>
+Toronto, Ontario<br>
+Canada<br>
+<%= mail_to("jguerra@jginfosys.com") %><br>
+<!--  <%#= tel_to '416 529 1562', '416 529 1562', target: '_blank' %><br> -->
+416 529 1562
+Oct 2016 => to present<br><br>
+
+
+<H4>PROFESSIONAL DESCRIPTION:</H4>
+ Designing and developing this open source ecommerce group purchasing website.<br>
+ Website: <%= link_to("https://desolate-journey-54830.herokuapp.com/", "https://desolate-journey-54830.herokuapp.com/" , target: '_blank') %>...this one right here... <br>
+ Github Profile: <%= link_to( "https://github.com/merlin2049er" ,"https://github.com/merlin2049er" , target: '_blank') %><br>
+ Linkldn Profile: <%= link_to( "https://www.linkedin.com/in/joe-guerra-09a6771b4/", 'https://www.linkedin.com/in/joe-guerra-09a6771b4/' , target: '_blank' ) %><br>
+
+<H4>PROFESSIONAL SUMMARY:</H4>
+ 3+ years of programming experience in developing web based applications using Ruby, Rails, JavaScript, CSS, HTML<br>
+ Strong debugging and problem-solving skills with excellent understanding of system development methodologies, techniques and tools<br>
+ Extensive working experience with SQL, Active Record<br>
+ Project management using git, github<br>
+ Experience in MVC Model View Controller architecture and frameworks<br>
+ Experience in PostgreSQL, (Microsoft) SQL Server Databases<br>
+ Experience in implementing Design Patterns like MVC<br>
+ Strong knowledge using the CRUD, create, read, update and delete methodology<br>
+ Working knowledge of Heroku deployment services<br>
+ Working knowledge of Redis, Elasticsearch, Sendgrid<br>
+<H4>TECHNICAL SKILLS:</H4>
+ Back End: Ruby, SQL<br>
+ Tools IDE: Atom IDE, Rubymine IDE<br>
+ Front End: JavaScript, HTML, CSS<br>
+ Frameworks: Bootstrap<br>
+ Databases: PostgreSQL, Microsoft SQL Server<br>
+ Networking, TCP/IP<br>
+ Version control: GIT, Git Kraken, GitHub Desktop<br>
+ Deployment/Hosting: Heroku<br>
+ Operating Systems: Linux (Ubuntu), Windows, Mac OSX<br>
+  <H4>CHALLENGES/AVAILABILITY/WORK/CHAT:</H4>
+ Ruby challenges accepted...Here's one I recently completed...<%= link_to "Palindrome Checker", "https://vast-mountain-39668.herokuapp.com/" %><br>
+ Availability 1 ~ 2 weeks notice<br>
+ Contract, Part time, Full Time, Remote, Temporary, Volunteer [registered charities only] <br>
+ Schedule a time to chat with me using Calendly<br><br>
+
+<i>Fill this in if you have interviewed me for a position.</i><br><br>
+
+<%= form_tag("/pages/thankyouhiringmanager", method: "get") do %>
+  Name:<br>  <%=text_field_tag(:name) %> <br />
+  Company:<br>  <%= text_field_tag(:company) %><br />
+  Website:<br>  <%= text_field_tag(:website) %> <br />
+  <%= submit_tag("Next") %>
+<% end %>
+
+
+<!-- Calendly badge widget begin -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
+<script type="text/javascript">Calendly.initBadgeWidget({ url: 'https://calendly.com/jguerra-8', text: 'Schedule time with me', color: '#00a2ff', textColor: '#ffffff', branding: true });</script>
+<!-- Calendly badge widget end -->

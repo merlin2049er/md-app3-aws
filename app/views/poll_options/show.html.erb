@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Poll:</strong>
+  <%= @poll_option.poll %>
+</p>
+
+<p>
+  <strong>Item:</strong>
+  <%= @poll_option.item %>
+</p>
+
+<p>
+  <strong>Enabled:</strong>
+  <%= @poll_option.enabled %>
+</p>
+
+<p>
+  <strong>Poll url enabled:</strong>
+  <%= @poll_option.poll_url_enabled %>
+</p>
+
+<p>
+  <strong>Poll url:</strong>
+  <%= @poll_option.poll_url %>
+</p>
+
+<p>
+  <strong>Count:</strong>
+  <%= @poll_option.count %>
+</p>
+
+<%= link_to 'Edit', edit_poll_option_path(@poll_option) %> |
+<%= link_to 'Back', poll_options_path %>

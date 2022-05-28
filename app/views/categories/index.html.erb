@@ -1,0 +1,55 @@
+<!-- found in views/categories/index.html.erb -->
+<% @user = current_user %>
+
+  <div>
+
+  <% if @categories.empty?  %>
+    <p>Nothing here...</p><br>
+
+    <p>Sorry, we will be updating the shop with some new products shortly.<br><br>
+    If your a manufacturer, or a wholesaler/distrubutor of audio gear I'd love to hear from you.
+    <br>
+    Please use the contact form to get in touch.
+    </p>
+
+  <% else %>
+    <%=   @categories.count %> categories <br><br>
+  <% end %>
+  </div>
+  <!-- insert new stuff here... -->
+  <div class="container">
+
+  <div class="row">
+
+  <!--	<div class="container text-center"> -->
+
+    <% @categories.each do |category| %>
+
+      <div class="col-md-4 col-sm-6 col-xs-12">
+      <!--  <div class="thumbnail"> -->
+
+    <a  href=  "<%=  category_path(category) %>" >
+
+            <h5><%= truncate(category.name )  %></h5>
+
+        <img src="<%= category.picurl  %>" alt="<%= truncate(category.name ) %>">
+</a>
+
+<% if user_signed_in? && @user.admin %>
+  <%= link_to 'Edit', edit_category_path(category) %>
+  <% end %>
+      </div>
+
+    <% end %>
+</div>
+
+</div>
+  <br>
+
+<% if @categories.count > 0 %>
+  <div class="pagenav">
+  <%== pagy_bootstrap_nav(@pagy) %> <br>
+</div>
+<% end %>
+
+<!-- end -->

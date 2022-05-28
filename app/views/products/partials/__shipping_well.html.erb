@@ -1,0 +1,15 @@
+<div class="well well-sm">
+   <% if @product.length == 0 and @product.width == 0 and @product.width == 0 and @product.weight == 0 %>
+     Package dimensions not available.
+  <% else %>
+    <i>Package dimensions</i><br>
+    Length: <%= @product.length %> cm<br>
+    Width:  <%= @product.width %> cm<br>
+    Height: <%= @product.height %> cm<br>
+    Weight: <%= @product.weight %> kg
+  <% end %>
+
+  <hr/>
+  <i>Shipped via</i>
+  <%= link_to @product.courier, @product.courierurl, target: :_blank %><br>
+</div>

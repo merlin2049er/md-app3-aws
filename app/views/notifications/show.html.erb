@@ -1,0 +1,14 @@
+<% if user_signed_in? %>
+
+<p>
+  <strong>Notification:</strong>
+  <%= @notification.notify_msg %>
+</p>
+
+<%= link_to 'Back', notifications_path %>
+
+<% else %>
+
+  <div class="alert alert-warning" role="alert">You must be signed in to see the notification.</div>
+
+<% end %>

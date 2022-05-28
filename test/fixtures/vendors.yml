@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vendor: MyString
+  contact_name: MyString
+  address1: MyString
+  address2: MyString
+  website: MyString
+  product: 
+  dropship: false
+  processing: 1
+  locally: false
+  payments: MyString
+
+two:
+  vendor: MyString
+  contact_name: MyString
+  address1: MyString
+  address2: MyString
+  website: MyString
+  product: 
+  dropship: false
+  processing: 1
+  locally: false
+  payments: MyString

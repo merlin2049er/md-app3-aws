@@ -1,0 +1,51 @@
+
+
+<%= simple_form_for(@troubleticket) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :id, :label => 'Ticket #', :readonly => true %>
+
+    <%= f.input :user_id, :readonly => true %>
+    <%= f.input :status, :disabled => true %>
+    <%= f.input :campaign,  :readonly => true %>
+    <%= f.input :subject, :readonly  => true %>
+    <%= f.input :message, :readonly  => true %>
+
+  </div>
+
+  <div class="form-actions">
+    <%#= f.button :submit %>
+  </div>
+
+
+  <% if @troubleticket.ticketnotes.any? %>
+
+  <small><i>...additional notes...</i></small><br>
+
+  <% @troubleticket.ticketnotes.each do |ticketnote| %>
+    <tr class="<%= cycle("even", "odd") %>">
+      <%if ticketnote.admin == true %> <td>  <font color ="green" > <%= ticketnote.created_at.strftime("%m/%d/%Y") %> </font>  </td>
+        <% else %>
+        <td>  <%= ticketnote.created_at.strftime("%m/%d/%Y") %> </td>
+      <% end %>
+
+       <!-- <td> <%#= ticketnote.troubleticket_id   %></td> -->
+         <%if ticketnote.admin == true %> <td>  <font color ="green" > <td> <%= ticketnote.notes   %> </font> <br></td>
+
+           <% else %>
+           <td> <%= ticketnote.notes   %> <br></td>
+
+           <% end %>
+
+
+    </tr>
+  <% end %>
+  <% else %>
+  <small><i>...no additional notes...</i></small><br>
+  <% end %>
+
+<small><%= link_to "...add to case notes...", new_troubleticket_ticketnote_path(@troubleticket) %> </small><br><br>
+
+<% end %>

@@ -1,0 +1,56 @@
+<!-- Find me in app/views/photos/index.html.erb -->
+
+<% @user = current_user %>
+<% if user_signed_in? && @user.admin %>
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Photos listing:
+    <% if @total == 0 %>
+      Nothing here...
+    <% else %>
+      <%= @total %>
+    <% end %>
+  </div>
+
+
+      <div class="panel-body">
+
+<table class="table">
+
+  <thead>
+  <tr>
+  <th>Id </th>
+  <th> Product Id </th>
+  <th>Uri</th>
+  <th>Action</th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @photos.each do |photo| %>
+      <tr>
+
+         <td><%= link_to photo.id , photo  %></td>
+        <td><%=  photo.product_id  %></td>
+        <td><%=  photo.uri  %></td>
+        <td>  <%= link_to 'Edit', edit_photo_path(photo) %> <%= link_to '    Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+      </div>
+</div>
+
+  <div class ='pagenav'>
+  <%== pagy_bootstrap_nav(@pagy) %> <br/>
+  </div>
+
+<% else %>
+
+<div class="alert alert-warning" role="alert">You must be signed in as the administrator to view the photos.</div>
+
+<% end %>
+<!-- end -->

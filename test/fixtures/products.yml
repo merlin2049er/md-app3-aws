@@ -1,0 +1,39 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  draft: false
+  active: false
+  title: MyString
+  template: MyText
+  price: 9.99
+  msrp: 9.99
+  startdate: 2020-03-17
+  endate: 2020-03-17
+  funded: false
+  picurl: MyString
+  qty: 1
+  length: 1
+  width: 1
+  height: 1
+  weight: 1
+  courier: MyString
+  courierurl: MyString
+
+two:
+  draft: false
+  active: false
+  title: MyString
+  template: MyText
+  price: 9.99
+  msrp: 9.99
+  startdate: 2020-03-17
+  endate: 2020-03-17
+  funded: false
+  picurl: MyString
+  qty: 1
+  length: 1
+  width: 1
+  height: 1
+  weight: 1
+  courier: MyString
+  courierurl: MyString

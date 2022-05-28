@@ -1,0 +1,28 @@
+<!-- views/checkout/success.html.erb -->
+
+<% if user_signed_in? %>
+
+
+<p>Your payment has <%= @success.payment_intent.status %>.</p>
+<p>Thank you for your payment of <%= number_to_currency @success.payment_intent.amount / 100.0 %><br><br>
+
+
+<p>A copy of your invoice is <a href= '<%= @success.payment_intent.charges.data[0].receipt_url  %>'  target="_blank" >here</a>.</p>
+
+<p>Shipments begin after receiving payments from everyone in the campaign.<br>
+Check the status of the transaction in the main menu.
+</p>
+
+<!-- <p>The shopping cart id is... <%#= @success.client_reference_id %> </p> -->
+
+<%#= debug @session %>
+<%#= debug @success %>
+
+
+<% else %>
+
+  <div class="alert alert-warning" role="alert">You must be signed in to see this page.</div>
+
+<% end %>
+
+<!-- end -->

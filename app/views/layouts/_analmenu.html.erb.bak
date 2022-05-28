@@ -1,0 +1,33 @@
+
+
+<% @user = current_user %>
+<% if user_signed_in? && @user.admin %>
+
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown"  data-hover="dropdown" data-delay="1000" role="button" aria-haspopup="true" aria-expanded="false">Analytics<span class="caret"></span></a>
+  <ul class="dropdown-menu">
+
+<li><%=link_to "Analytics Page", '/pages/analytics' %></li>
+<hr>
+    <li><%=link_to "Google Anayltics", "https://marketingplatform.google.com/", target: "_blank" %></li>
+    <li><%=link_to "Hot Jar", "https://www.hotjar.com", target: "_blank" %></li>
+    <li><%=link_to "Share This", "https://www.sharethis.com",  target: "_blank" %></li>
+<hr>
+    <li><%=link_to "Bing Webmaster Tools", "https://www.bing.com/toolbox/webmaster", target: "_blank" %></li>
+    <li><%=link_to "Google Search", "https://search.google.com/search-console", target: "_blank" %></li>
+    <li><%=link_to "Pro Sitemaps", "https://pro-sitemaps.com",  target: "_blank" %></li>
+    <li><%=link_to "Yandex Webmaster", "https://webmaster.yandex.com/welcome",  target: "_blank" %></li>
+
+
+<hr>
+<li><%=link_to "Cloudinary", "https://cloudinary.com/",  target: "_blank" %></li>
+<li><%=link_to "Mailchimp", "https://mailchimp.com",  target: "_blank" %></li>
+<li><%=link_to "Shippo", "https://goshippo.com",  target: "_blank" %></li>
+<li><%=link_to "Stripe", "https://www.stripe.com/",  target: "_blank" %></li>
+<li><%=link_to "Wave Accounting", "https://www.waveapps.com/",  target: "_blank" %></li>
+<li><%=link_to "Zapier", "https://www.zapier.com/",  target: "_blank" %></li>
+
+  </ul>
+</li>
+
+<% end %>

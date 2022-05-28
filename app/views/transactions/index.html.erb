@@ -1,0 +1,94 @@
+<!--
+<script>
+  $("#grid-basic").bootgrid();
+
+</script> -->
+
+<% @user = current_user %>
+<% if user_signed_in? %>
+
+<div class="table-responsive">
+      <!-- Default panel contents -->
+      <div class="panel-heading">Transactions:  <% if @transactions.empty?  %>
+            Nothing here...
+        <% else %>
+            <%= @transactions.count %> items...
+        <% end %>
+        <div class="pull-right" ><font size="1">Transactions are displayed for the last 60 days.</font><br>
+       <div class="pull-right"><font size="1">Filters> <%= link_to "All  ", transactions_path(:view=>"") %> <%= link_to "Shipped  ", transactions_path(:view=>"shipped") %> <%= link_to "Not Shipped  ", transactions_path(:view=>"notshipped") %></font><br></div>
+
+    </div>
+      </div>
+
+      <div class="panel-body">
+      <!-- <table class="table"> -->
+        <table id="grid-basic" class="table table-condensed table-hover table-striped">
+
+  <thead>
+  <tr>
+    <!-- <th>id</th>  -->
+    <th>Added</th>
+    <th>Invoice # / Pdf </th>
+    <th>Shipped?</th>
+    <th>Courier</th>
+    <th>Tracking #</th>
+    <th>Comment</th>
+    <th>Action</th>
+    <th>Feedback</th>
+  </tr>
+  </thead>
+
+  <tbody>
+
+  <% if @transactions.empty?  %>
+
+  <% end %>
+
+
+    <% @transactions.each do |transaction| %>
+       <tr class="<%= cycle("even", "odd") %>">
+
+      <!--  <td> <%=  transaction.id  %>  </td> -->
+        <td><%= transaction.created_at.strftime("%m/%d/%Y")  %> </td>
+        <td> <%= link_to transaction.invoice_number, transaction.receipt_url, target: :_blank %> </td>
+        <td> <%=  transaction.shipped  %>  </td>
+        <td> <%=  transaction.postal_carrier  %></td>
+        <td> <%=   transaction.tracking_number %></td>
+        <td> <%= transaction.transaction_msg  %></td>
+        <td><%= link_to 'Show  ', transaction_path(transaction ) %>
+           <% if user_signed_in? && @user.admin %>
+              <%= link_to 'Update', edit_transaction_path(transaction  ) %>
+              <% end %>
+
+        </td>
+
+       <% if transaction.feedback.blank? %>
+
+            <td>
+
+               <%= link_to "Leave feedback...",new_transaction_feedback_url(:transaction_id => transaction.id )%> </td>
+               <% else %>
+               <td> Feedback received...</td>
+
+          <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+      </div>
+
+    </div>
+
+
+    <br>
+
+<div class="pagenav">
+
+  <%== pagy_bootstrap_nav(@pagy) %> <br>
+</div>
+<% else %>
+
+    <div class="alert alert-warning" role="alert">You must be signed in to see the transactions.</div>
+
+<% end %>

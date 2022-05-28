@@ -1,0 +1,54 @@
+<!-- views/layouts/_adminmenu.html.erb -->
+
+<% @user = current_user %>
+<% if user_signed_in? && @user.admin %>
+
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown"  data-hover="dropdown" data-delay="1000" role="button" aria-haspopup="true" aria-expanded="false">Admin<span class="caret"></span></a>
+  <ul class="dropdown-menu">
+
+    <li><%=link_to "Admin Page", '/pages/admin' %></li>
+    <hr>
+    <li><%= link_to "Announcement Listing", announcements_path %></li>
+
+    <li><%= link_to "Blackist Listing", blacklists_path %></li>
+    <li><%= link_to "Dashboard Stats", pages_dashboard_path %></li>
+    <li><%= link_to "Category Listing", categories_path %></li>
+
+    <li><%= link_to "Faq Listing", faqs_path %></li>
+    <li><%= link_to "Feedback Listing", feedbacks_path %></li>
+    <li><%= link_to "Newsletter Listing", newsletters_path %></li>
+    <li><%= link_to "Photos Listing", photos_path %></li>
+    <li><%= link_to "Polls Listing", polls_path %></li>
+    <li><%= link_to "Search Listing", search_fors_path %></li>
+    <!-- <li><%#= link_to "Users Listing", "/users" %></li> -->
+    <li><%= link_to "Tax Listing", taxes_path %></li>
+    <li><%= link_to "ToDo Listing", todo_lists_path %></li>
+
+    <li><%= link_to "Transaction Listing", transactions_path %></li>
+    <li><%= link_to "Trouble Tickets", troubletickets_path %></li>
+    <li><%= link_to "Vendor Listing", vendors_path %></li>
+
+
+    <li><hr></li>
+    <li><%= link_to "New Announcement", new_announcement_path %></li>
+
+    <li><%= link_to "New Blackist", new_blacklist_path %></li>
+    <li><%= link_to "New Category", new_category_path %></li>
+    <li><%= link_to "New Faq", new_faq_path %></li>
+    <li><%=link_to "New Notification", new_notification_path %></li>
+    <li><%=link_to "New Photo",  new_photo_path %></li>
+    <li><%= link_to "New Poll", new_poll_path %></li>
+
+    <li><%=link_to "New Product",  new_product_path %></li>
+    <li><%=link_to "New Tax", new_tax_path %></li>
+    <li><%=link_to "New Transaction", new_transaction_path %></li>
+    <li><%=link_to "New Vendor", new_vendor_path %></li>
+
+
+  </ul>
+</li>
+
+<% end %>
+
+<!-- end -->

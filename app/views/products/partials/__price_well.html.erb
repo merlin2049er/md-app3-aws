@@ -1,0 +1,11 @@
+<div class="well well-sm">
+  <i>Price, MSRP, Discount, Page views</i><br>
+  <% if @product.msrp != 0 && @product.price != 0 then %>
+    $<%= @product.price %><br>
+  <s>  $<%= @product.msrp %> MSRP </s><br>
+
+    %<%= Discount.calculate_percentage_discount(@product.msrp, @product.price) %> Savings <br>
+    <%= @product.impressionist_count(:filter => :ip_address) %> Views
+  <% end %>
+
+</div>

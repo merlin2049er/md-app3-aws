@@ -1,0 +1,182 @@
+<%= render 'layouts/addthis' %>
+
+<ul class="nav nav-tabs">
+  <li class="active"><a data-toggle="tab" href="#Product">Product</a></li>
+  <li><a data-toggle="tab" href="#Discussion">Discussion</a></li>
+</ul>
+
+<!-- tabs here -->
+  <div class="tab-content">
+    <div id="Product" class="tab-pane fade in active">
+
+  <H2><%= @product.title %></H2>
+  <h5><%= @product.brand %></h5>
+
+  <% if @remaining == 0 %>
+
+  <% elsif @remaining == 1 %>
+
+    <%= form_tag add_to_cart_product_path(@product.id), method: :post do %>
+    <% if Time.now >= @product.startdate && Time.now <= @product.enddate %>
+    <%# if Date.today BETWEEN @product.startdate AND @product.enddate %>
+
+
+       Quantity: <%= number_field_tag :qty, 1, :min => 1, :max => @remaining %>
+
+<% if user_signed_in? %>
+
+      <%= submit_tag "Add to cart",  data: { confirm: "Are you sure you want to add #{@product.title} to your cart?" } ,  :title => "Are you sure you want to add #{@product.title} to your cart?"%>
+<% else %>
+    <!-- disabled button and tooltip here... -->
+   <button type="button"  data-toggle="tooltip" data-placement="top" title="You must log in to add to cart.">
+      Add to cart
+    </button>
+<% end %>
+
+<%end %>
+
+    <% end %>
+
+    <br>
+  <% else %>
+
+  <%= form_tag add_to_cart_product_path(@product.id), method: :post do %>
+  <% if Time.now >= @product.startdate && Time.now <= @product.enddate %>
+  <%# if Date.today BETWEEN @product.startdate AND @product.enddate %>
+
+
+     Quantity: <%= number_field_tag :qty, 1, :min => 1, :max => @remaining %>
+
+     <% if user_signed_in? %>
+
+
+  <%= submit_tag "Add to cart",  data: { confirm: "Are you sure you want to add #{@product.title} to your cart?" },  :title => "Are you sure you want to add #{@product.title} to your cart?"%>
+    <% else %>
+    <!-- disabled button and tooltip here... -->
+    <button type="button"  data-toggle="tooltip" data-placement="top" title="You must log in to add to cart.">
+      Add to cart
+    </button>
+
+    <% end %>
+
+  <% end %>
+
+    <% end %>
+
+<br>
+  <% end %>
+
+ <% if user_signed_in? %>
+ <!-- render voting buttons here? -->
+ <%#= render 'products/partials/votingbuttons' %>
+  <i><%= link_to "Add to Watch List",  controller: "watchlists", action: "new" , :product_id => @product.id , :user_id => @current_user  ,:remote => true%></i>
+
+<br>
+<%end %>
+  <div class="well well-sm">
+
+    <% start_time = @product.startdate %>
+    <% end_time = @product.enddate %>
+
+
+    System time: <%= time_now = Time.now%>.<br>
+    <!-- End Date: <%= @product.enddate %> <br> -->
+
+    <% if @product.active == true && time_now <= end_time %>
+      Active campaign [# <%= @product.id %>]
+      <% if @product.funded == true %>
+        successfully
+      <% else %>
+        not
+      <% end %>
+      funded.
+      <br>
+      Start date: <%= @product.startdate %>.<br>End date: <%= @product.enddate %>.<br>
+      Duration, <%= distance_of_time_in_words(start_time, end_time) %>.<br>
+
+      </div>
+
+      <div class="well well-sm">
+
+        <% if time_now >= start_time %>
+          Time remaining, <%= distance_of_time_in_words(time_now, end_time) %>.
+
+        <% end %>
+
+        <% if time_now <= start_time %>
+          Campaign has not started yet.
+        <% else %>
+
+          <div class="progress">
+
+            <% @progressdate = (((@product.enddate.to_date - time_now.to_date).to_f) / ((@product.enddate.to_date - @product.startdate.to_date).to_f) * 100).to_i %>
+
+            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: <%= @progressdate %>%">
+              <%= distance_of_time_in_words(time_now, end_time) %>
+            </div>
+          </div>
+
+        <% end %>
+
+    <% else %>
+       Campaign ended.
+    <% end %>
+
+<%= render 'products/partials/progressbar_wells' %>
+    </div>
+
+    <%= render 'products/partials/main_photo_well' %>
+
+  <%= render 'products/partials/description_well' %>
+
+    <div class="well well-sm">
+      <i>Price, MSRP, Discount, Page views</i><br>
+      <% if @product.msrp != 0 && @product.price != 0 then %>
+        $<%= @product.price %><br>
+      <s>  $<%= @product.msrp %> MSRP </s><br>
+
+        %<%= Discount.calculate_percentage_discount(@product.msrp, @product.price) %> Savings <br>
+        <%= @product.impressionist_count(:filter => :ip_address) %> Views
+      <% end %>
+
+    </div>
+
+
+
+    <div class="well well-sm">
+       <% if @product.length == 0 and @product.width == 0 and @product.width == 0 and @product.weight == 0 %>
+         <i>Package dimensions not available.</i>
+      <% else %>
+        <i>Package dimensions</i><br>
+        Length: <%= @product.length %> cm<br>
+        Width:  <%= @product.width %> cm<br>
+        Height: <%= @product.height %> cm<br>
+        Weight: <%= @product.weight %> kg
+      <% end %>
+
+      <hr/>
+      <i>Shipped via</i>
+      <%= link_to @product.courier, @product.courierurl, target: :_blank %><br>
+    </div>
+
+    <%= render 'products/partials/history_well' %>
+
+    </div>
+
+
+    <div id="Discussion" class="tab-pane fade">
+
+      <H2><%= @product.title %></H2>
+
+      <%= render 'products/partials/main_photo_well' %>
+
+
+      <div class="well well-sm">
+
+        <!-- comments here -->
+        <%= commontator_thread(@product) %>
+
+      </div>
+
+    </div>
+    </div>

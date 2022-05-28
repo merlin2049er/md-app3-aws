@@ -1,0 +1,89 @@
+<!-- views/layouts/_nav.html.erb -->
+<nav class="navbar navbar-inverse">
+
+  <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="<%= root_url %>"> <b><i>Tipping Point</i></b> </a>
+      </div>
+
+  <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button> -->
+
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+    <ul class="nav navbar-nav">
+
+    <li >
+      <%= link_to pages_about_path do %>
+      <!-- <img src="/bootstrap-icons-1.0.0/info-circle.svg" alt="" width="20" height="20" > --> <span>About</span>
+       <span class="sr-only"></span>
+      <% end %>
+    </li>
+
+    <li> <%= link_to blogs_path  do %>
+    <!--   <img src="/bootstrap-icons-1.0.0/envelope.svg" alt="" width="20" height="20" > --> <span>Blog</span>
+    <% end %>
+    </li>
+
+      <li> <%= link_to pages_contact_path  do %>
+      <!--   <img src="/bootstrap-icons-1.0.0/envelope.svg" alt="" width="20" height="20" > --> <span>Contact</span>
+      <% end %>
+      </li>
+
+<%= render 'layouts/categorydropdown' %>
+<%= render 'layouts/search_bar' %>
+     </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+
+      <% if !current_user %>
+      <li>
+              <%= link_to pages_terms_path  do %>
+      <!-- <img src="/bootstrap-icons-1.0.0/file-text.svg" alt="" width="20" height="20" > --> <span>Terms</span>
+    <% end %>
+    </li>
+
+            <li>
+                    <%= link_to faqs_path  do %>
+        <!--     <img src="/bootstrap-icons-1.0.0/list-stars.svg" alt="" width="20" height="20" > --> <span>FAQ</span>
+          <% end %>
+          </li>
+
+        <!--  <li><%#= link_to "Sign Up", new_user_registration_path %></li>  -->
+          <li>
+                  <%= link_to new_user_registration_path do %>
+        <!--   <img src="/bootstrap-icons-1.0.0/pencil.svg" alt="" width="20" height="20" >  --> <span>Sign Up</span>
+        <% end %>
+        </li>
+
+
+          <!--<li><%#= link_to "Log in", new_user_session_path %> </li> -->
+
+          <li>
+                  <%= link_to new_user_session_path do %>
+      <!--     <img src="/bootstrap-icons-1.0.0/door-open.svg" alt="" width="20" height="20" >  --> <span>Log in</span>
+        <% end %>
+        </li>
+
+       <% else %>
+          <li><%= render 'layouts/analmenu' %></li>
+          <li><%= render 'layouts/adminmenu' %></li>
+          <li><%= render 'layouts/notificationsdropdown' %></li>
+          <li><%= render 'layouts/mainmenu' %></li>
+          <li><%= render 'layouts/helpmenu' %></li>
+      <% end %>
+
+
+</ul>
+<!-- search box was here  -->
+
+</div>
+</div>
+</nav>
+<!-- end nav bar -->

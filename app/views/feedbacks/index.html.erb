@@ -1,0 +1,57 @@
+
+
+
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Feedback:
+        <% if @feedbacks.empty? %>
+          Nothing here...
+        <% else %>
+          <%= @feedbacks.count %> left here...
+        <% end %>
+
+    </div>
+
+
+    <div class="panel-body">
+<table class="table" >
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Transaction Id</th>
+      <th>Rate</th>
+      <th>Recommned</th>
+      <th>Comment</th>
+
+      <th>Share</th>
+      <th>Publish</th>
+      <th>Action</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @feedbacks.each do |feedback| %>
+      <tr>
+        <td><%= feedback.id %></td>
+        <td><%= feedback.transaction_id %></td>
+        <td><%= feedback.rate %></td>
+        <td><%= feedback.recommend %></td>
+        <td><%= feedback.comment %></td>
+        <td><%= feedback.share %></td>
+        <td><%= feedback.publish %></td>
+       <td><%= link_to 'Edit', edit_feedback_path(feedback, :transaction_id => feedback.transaction_id) %> | <%= link_to ' Destroy', feedback, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>
+
+<br>
+
+<%#= link_to 'New Feedback', new_feedback_path %>
+
+  <div class="pagenav">
+    <%== pagy_bootstrap_nav(@pagy) %> <br>
+  </div>

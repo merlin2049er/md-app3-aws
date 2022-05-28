@@ -1,0 +1,52 @@
+
+<% @user = current_user %>
+<% if user_signed_in? && @user.admin %>
+
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Newsletter List:
+    <% if   @newsletter_lists.empty? %>
+      Nothing here...
+    <% else %>
+      <%= @newsletter_lists.count %> users expecting newsletters...
+    <% end %>
+
+  </div>
+
+
+  <div class="panel-body">
+    <table class="table" >
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <!-- <th>Newsletter</th> -->
+
+      <!-- <th colspan="3"></th> -->
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @newsletter_lists.each do |news| %>
+      <tr>
+        <td><%= news.firstname %> <%= news.lastname %></td>
+        <td><%= news.email %></td>
+        <!-- <td><%#= news.newsletter %></td> -->
+
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div>
+</div>
+
+<div class ='pagenav'>
+<%== pagy_bootstrap_nav(@pagy) %> <br/>
+</div>
+
+<% else %>
+  <div class="alert alert-warning" role="alert">You must be signed in as the administrator to view the Newsletter List.</div>
+<% end %>

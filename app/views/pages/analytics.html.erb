@@ -1,0 +1,30 @@
+<!-- Find me in app/views/pages/analytics.html.erb -->
+
+<% @user = current_user %>
+<% if user_signed_in? && @user.admin %>
+
+<li><%=link_to "Google Anayltics", "https://marketingplatform.google.com/", target: "_blank" %></li>
+<li><%=link_to "Hot Jar", "https://www.hotjar.com", target: "_blank" %></li>
+<li><%=link_to "Share This", "https://www.sharethis.com",  target: "_blank" %></li>
+<hr>
+<li><%=link_to "Bing Webmaster Tools", "https://www.bing.com/toolbox/webmaster", target: "_blank" %></li>
+<li><%=link_to "Google Search", "https://search.google.com/search-console", target: "_blank" %></li>
+<li><%=link_to "Pro Sitemaps", "https://pro-sitemaps.com",  target: "_blank" %></li>
+<li><%=link_to "Yandex Webmaster", "https://webmaster.yandex.com/welcome",  target: "_blank" %></li>
+
+
+<hr>
+<li><%=link_to "Cloudinary", "https://cloudinary.com/",  target: "_blank" %></li>
+<li><%=link_to "Mailchimp", "https://mailchimp.com",  target: "_blank" %></li>
+<li><%=link_to "Shippo", "https://goshippo.com",  target: "_blank" %></li>
+<li><%=link_to "Stripe", "https://www.stripe.com/",  target: "_blank" %></li>
+<li><%=link_to "Wave Accounting", "https://www.waveapps.com/",  target: "_blank" %></li>
+<li><%=link_to "Zapier", "https://www.zapier.com/",  target: "_blank" %></li>
+
+<% else %>
+
+    <div class="alert alert-warning" role="alert">You must be the administrator to see the analytics page.</div>
+
+<% end %>
+
+<!-- end -->

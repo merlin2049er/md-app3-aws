@@ -1,0 +1,19 @@
+
+<%#= simple_form_for @notification, validate: true do |f| %>
+
+<%= simple_form_for @notification do |f| %>
+
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+
+    <%= f.input :user_id %>
+    <%= f.input :enabled %>
+
+    <%= f.input :notify_msg %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
