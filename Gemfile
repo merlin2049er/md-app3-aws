@@ -134,7 +134,7 @@ gem 'sitemap_generator'
 #gem 'friendly_id', '~> 5.2.4' # NOTE: You MUST use 5.0.0 or greater for Rails 4.0+
 gem 'friendly_id', '~> 5.4', '>= 5.4.2'
 
-#gem 'heroku-deflater', group: :production
+gem 'heroku-deflater', group: :production
 
 gem 'hotwire-rails'
 gem 'turbo-rails'
@@ -148,8 +148,8 @@ gem "recaptcha", require: "recaptcha/rails"
 #gem 'omniauth-rails_csrf_protection', '~> 1.0'
 gem 'omniauth-rails_csrf_protection', '~> 1.0', '>= 1.0.1'
 
-gem 'activemerchant'
-gem 'active_shipping'
+#gem 'activemerchant'
+#gem 'active_shipping'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
