@@ -38,6 +38,7 @@ class Product < ActiveRecord::Base
   validates_presence_of :enddate
   validates_presence_of :courier
   validates_presence_of :courierurl
+  validates_presence_of :warehouse_id
 
   validates_length_of :title, maximum: 35
 

@@ -2,6 +2,7 @@
 
 Rails.application.routes.draw do
 
+  resources :warehouses
   resources :blogs
   resources :search_fors
   resources :poll_options

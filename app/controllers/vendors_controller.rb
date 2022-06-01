@@ -4,7 +4,7 @@ class VendorsController < ApplicationController
   # GET /vendors
   # GET /vendors.json
   def index
-        add_breadcrumb 'Vendors'
+    add_breadcrumb 'Vendors'
     @vendors = Vendor.all
     @pagy, @vendors = pagy(Vendor.all.order(:created_at))
   end

@@ -7,9 +7,13 @@
 
   <div class="form-inputs">
     <div class = "field">
+      <%= f.label :warehouse_id %><br>
+      <%= f.collection_select :warehouse_id, Warehouse.all, :id, :name %><br>
+    </div>
+    <div class = "field">
      <%= f.label :category_id %><br>
      <%= f.collection_select :category_id, Category.all, :id, :name %>
-     </div>
+    </div>
 
     <%= f.input :active %>
     <%= f.input :draft %>

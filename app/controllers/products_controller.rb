@@ -235,6 +235,7 @@ class ProductsController < ApplicationController
   def product_params
     params.require(:product).permit(
       :title,
+      :warehouse_id,
       :picurl,
       :template,
       :body,
@@ -254,6 +255,8 @@ class ProductsController < ApplicationController
       :courierurl,
       :brand,
       photos_attributes: %i[product_id uri done _destroy]
+
+
     )
   end
 

@@ -25,6 +25,7 @@
       <li><%= link_to "Transaction Listing", transactions_path %></li>
       <li><%= link_to "Trouble Tickets", troubletickets_path %></li>
       <li><%= link_to "Vendor Listing", vendors_path %></li>
+      <li><%= link_to "Warehouse Listing", warehouses_path %></li>
 
 
       <hr>
@@ -43,8 +44,10 @@
       <li><%=link_to "New Tax", new_tax_path %></li>
       <li><%=link_to "New Transaction", new_transaction_path %></li>
       <li><%=link_to "New Vendor", new_vendor_path %></li>
+      <li><%=link_to "New Warehouse", new_warehouse_path %></li>
 
-  <% else %>
+
+<% else %>
 
     <div class="alert alert-warning" role="alert">You must be the administrator to see the admin page.</div>
 

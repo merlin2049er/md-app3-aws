@@ -1,0 +1,58 @@
+<% @user = current_user %>
+<% if user_signed_in? && @user.admin %>
+
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Warehouse List:
+      <% if @warehouses.empty? %>
+        Nothing here...
+      <% else %>
+        <%= @warehouses.count %> Warehouses registered...
+      <% end %>
+
+    </div>
+    <div class="panel-body">
+    <table class="table" >
+      <thead>
+      <tr>
+      <th>Name</th>
+      <th>Address1</th>
+      <th>Address2</th>
+      <th>City</th>
+      <th>Prov</th>
+      <th>Postal code</th>
+       <th>Country</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @warehouses.each do |warehouse| %>
+      <tr>
+        <td><%= warehouse.name %></td>
+        <td><%= warehouse.address1 %></td>
+        <td><%= warehouse.address2 %></td>
+        <td><%= warehouse.city %></td>
+        <td><%= warehouse.prov %></td>
+        <td><%= warehouse.postalcode %></td>
+        <td><%= warehouse.country %></td>
+        <td><%= link_to 'Show', warehouse %> | <%= link_to 'Edit', edit_warehouse_path(warehouse) %> |
+        <%= link_to 'Destroy', warehouse, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  <% end %>
+  </tbody>
+    </table>
+    </div>
+  </div>
+
+<br>
+
+<%= link_to 'New Warehouse', new_warehouse_path %>
+
+  <div class ='pagenav'>
+    <%== pagy_bootstrap_nav(@pagy) %> <br/>
+  </div>
+
+<% else %>
+  <div class="alert alert-warning" role="alert">You must be signed in as the administrator to view the Vendor List.</div>
+<% end %>

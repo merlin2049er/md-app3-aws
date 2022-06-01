@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_04_143641) do
+ActiveRecord::Schema.define(version: 2022_06_01_223453) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,16 @@ ActiveRecord::Schema.define(version: 2022_02_04_143641) do
     t.string "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "blog_comments", force: :cascade do |t|
+    t.text "comment", null: false
+    t.bigint "blog_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["blog_id"], name: "index_blog_comments_on_blog_id"
+    t.index ["user_id"], name: "index_blog_comments_on_user_id"
   end
 
   create_table "blogs", force: :cascade do |t|
@@ -267,6 +277,7 @@ ActiveRecord::Schema.define(version: 2022_02_04_143641) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "slug"
     t.string "brand"
+    t.integer "warehouse_id"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["slug"], name: "index_products_on_slug", unique: true
   end
@@ -408,6 +419,18 @@ ActiveRecord::Schema.define(version: 2022_02_04_143641) do
     t.index ["voter_type", "voter_id"], name: "index_votes_on_voter_type_and_voter_id"
   end
 
+  create_table "warehouses", force: :cascade do |t|
+    t.string "name"
+    t.string "address1"
+    t.string "address2"
+    t.string "city"
+    t.string "prov"
+    t.string "postalcode"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "country"
+  end
+
   create_table "watchlists", force: :cascade do |t|
     t.integer "user_id"
     t.integer "product_id"
@@ -420,6 +443,8 @@ ActiveRecord::Schema.define(version: 2022_02_04_143641) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "blog_comments", "blogs"
+  add_foreign_key "blog_comments", "users"
   add_foreign_key "commontator_comments", "commontator_comments", column: "parent_id", on_update: :restrict, on_delete: :cascade
   add_foreign_key "commontator_comments", "commontator_threads", column: "thread_id", on_update: :cascade, on_delete: :cascade
   add_foreign_key "commontator_subscriptions", "commontator_threads", column: "thread_id", on_update: :cascade, on_delete: :cascade
