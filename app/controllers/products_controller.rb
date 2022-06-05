@@ -4,6 +4,8 @@ class ProductsController < ApplicationController
   include Pagy::Backend
 
   before_action :set_product, only: %i[show edit update destroy]
+  before_action :check_collections, only: %i[new]
+
 
   # GET /products
   # GET /products.json
@@ -225,6 +227,20 @@ class ProductsController < ApplicationController
   private
 
   # Use callbacks to share common setup or constraints between actions.
+
+  def check_collections
+    # need something in the drop down lists first...
+    if Warehouse.first.nil?
+      redirect_to new_warehouse_path, notice: 'Please add warehouses first.'
+    end
+
+    if Category.first.nil?
+      redirect_to new_category_path, notice: 'Please add categories first.'
+    end
+
+  end
+
+
   def set_product
     @product = Product.friendly.find(params[:id])
 
