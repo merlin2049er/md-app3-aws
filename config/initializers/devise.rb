@@ -290,10 +290,12 @@ Devise.setup do |config|
   require "omniauth-facebook"
 
   config.omniauth :facebook,
-                  ENV['FACEBOOK_APP_ID'],
-                  ENV['FACEBOOK_APP_SECRET'],
-                  # callback_url: 'https://desolate-journey-54830.herokuapp.com/users/auth/facebook/',
-                  callback_url: 'https://desolate-journey-54830.herokuapp.com/users/auth/facebook/callback',
+                 # ENV['FACEBOOK_APP_ID'],
+                  Rails.application.credentials[:FACEBOOK_APP_ID],
+                 # ENV['FACEBOOK_APP_SECRET'],
+		  Rails.application.credentials[:FACEBOOK_APP_SECRET],
+                 # callback_url: 'https://desolate-journey-54830.herokuapp.com/users/auth/facebook/callback',
+                  callback_url: 'http://ec2-3-145-86-72.us-east-2.compute.amazonaws.com/users/auth/facebook/callback/',
                   scope: 'email, public_profile',
                   info_fields: 'email, first_name, last_name, picture',
                   image_size: 'large',
@@ -302,6 +304,7 @@ Devise.setup do |config|
   require "omniauth-google-oauth2"
 
   config.omniauth :google_oauth2,
-                 ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_SECRET"]
+                # ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_SECRET"]
+ 		Rails.application.credentials[:GOOGLE_CLIENT_ID], Rails.application.credentials[:GOOGLE_CLIENT_SECRET]
 
 end

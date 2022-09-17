@@ -43,14 +43,7 @@ ActiveRecord::Schema.define(version: 2022_06_01_223453) do
     t.bigint "byte_size", null: false
     t.string "checksum", null: false
     t.datetime "created_at", null: false
-    t.string "service_name", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
-  end
-
-  create_table "active_storage_variant_records", force: :cascade do |t|
-    t.bigint "blob_id", null: false
-    t.string "variation_digest", null: false
-    t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
   create_table "announcements", force: :cascade do |t|
@@ -65,16 +58,6 @@ ActiveRecord::Schema.define(version: 2022_06_01_223453) do
     t.string "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "blog_comments", force: :cascade do |t|
-    t.text "comment", null: false
-    t.bigint "blog_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["blog_id"], name: "index_blog_comments_on_blog_id"
-    t.index ["user_id"], name: "index_blog_comments_on_user_id"
   end
 
   create_table "blogs", force: :cascade do |t|
@@ -436,15 +419,10 @@ ActiveRecord::Schema.define(version: 2022_06_01_223453) do
     t.integer "product_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["product_id"], name: "index_watchlists_on_product_id"
     t.index ["user_id", "product_id"], name: "index_watchlists_on_user_id_and_product_id", unique: true
-    t.index ["user_id"], name: "index_watchlists_on_user_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "blog_comments", "blogs"
-  add_foreign_key "blog_comments", "users"
   add_foreign_key "commontator_comments", "commontator_comments", column: "parent_id", on_update: :restrict, on_delete: :cascade
   add_foreign_key "commontator_comments", "commontator_threads", column: "thread_id", on_update: :cascade, on_delete: :cascade
   add_foreign_key "commontator_subscriptions", "commontator_threads", column: "thread_id", on_update: :cascade, on_delete: :cascade

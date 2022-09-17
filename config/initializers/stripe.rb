@@ -11,8 +11,13 @@ require 'stripe'
 
 #  --> uae this instead of above before going live
 Rails.configuration.stripe = {
-  publishable_key: ENV['STRIPE_PUBLISHABLE_KEY'],
-  secret_key: ENV['STRIPE_SECRET_KEY']
+ #  publishable_key: ENV['STRIPE_PUBLISHABLE_KEY'],
+    publishable_key:  Rails.application.credentials[:STRIPE_PUBLISHABLE_KEY],
+
+ #  secret_key: ENV['STRIPE_SECRET_KEY']
+    secret_key: Rails.application.credentials[:STRIPE_SECRET_KEY]
 }
 
-Stripe.api_key = Rails.configuration.stripe[:secret_key]
+ Stripe.api_key = Rails.configuration.stripe[:secret_key]
+#  Stripe.api_key = Rails.application.credentials[:STRIPE_SECRET_KEY]  # not sure if i need to replace this #
+
