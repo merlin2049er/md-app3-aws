@@ -29,12 +29,12 @@ Please use the contact form to get in touch.
 
 <a  href=  "<%=  product_path(product) %>" >
 			<h5> <%= product.title %> </h5>
-		    <img src="<%= product.picurl  %>" alt="<%= product.title %>"><br>
+		    <img src="<%= product.picurl  %>" alt="<%= product.title %>">
 </a>
 
 
 <div style="color:grey">
-	<%= truncate(product.template, length: 50 , separator: ' ')  %>
+	<%= truncate(product.template, length: 50 , separator: ' ')  %><br>
 
   <small><i>Ending: <%= product.enddate %> </i></small>
 </div>

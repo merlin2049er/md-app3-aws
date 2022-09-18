@@ -2,6 +2,6 @@
 
 # $redis = Redis.new(url: ENV['REDIS_URL'])
 
- Redis.current = Redis.new(url:  Rails.application.credentials[:REDIS_URL],
+ Redis.new(url:  Rails.application.credentials[:REDIS_URL],
                            port: Rails.application.credentials[:REDIS_PORT],
                            db:   Rails.application.credentials[:REDIS_DB])

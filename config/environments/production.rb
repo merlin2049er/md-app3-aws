@@ -39,7 +39,7 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
-  config.active_storage.service = :local
+  config.active_storage.service = :amazon
 
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
@@ -119,7 +119,7 @@ Rails.application.configure do
  
  
  config.action_mailer.delivery_method = :smtp
- host = 'example.com' #replace with your own url
+ host = 'http://ec2-3-145-86-72.us-east-2.compute.amazonaws.com' #replace with your own url
  config.action_mailer.default_url_options = { host: host }
 
 # SMTP settings for gmail
@@ -127,9 +127,10 @@ Rails.application.configure do
   :address              => "smtp.gmail.com",
   :port                 => 587,
   :user_name            => "jguerra@jginfosys.com",
-  :password             => "Zorkmerlin1!",
+  :password             => "qxtjbullyfghlzun",
   :authentication       => "plain",
   :enable_starttls_auto => true
  }
+#config.action_cable.allowed_request_origins = ["http://ec2-3-145-86-72.us-east-2.compute.amazonaws.com"]
 
 end

@@ -28,7 +28,7 @@ namespace :db do
     Product.populate 1..250 do |product|
       product.title = Populator.words(1..3).titleize
       product.brand = Populator.words(1..2).titleize
-      #     product.template = Populator.sentences(2..10)
+      product.template = Populator.sentences(2..10)
       product.price = [5.99, 19, 99, 29.99, 49.99]
       product.msrp =  [6.99, 21, 99, 39.99, 69.99]
       product.draft =  [false]
@@ -39,6 +39,7 @@ namespace :db do
       product.startdate = Date.today
       product.enddate = Date.today+30
       product.picurl = ['https://res.cloudinary.com/dlfodsgbd/image/upload/v1590070578/TippingPoint/photo_not_available.png']
+      product.warehouse_id = [1]	
     end
   end
 end
