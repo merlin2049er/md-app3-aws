@@ -20,7 +20,7 @@ gem 'pg'
 
 # Use Puma as the app server
 #gem 'puma', '~> 4.1'
-gem 'puma', '~> 5.1', '>= 5.1.1'
+# gem 'puma', '~> 5.1', '>= 5.1.1'  # using phusion instead
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'

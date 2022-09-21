@@ -237,11 +237,12 @@ GEM
       omniauth (~> 2.0)
     orm_adapter (0.5.0)
     pagy (4.11.0)
+    passenger (6.0.15)
+      rack
+      rake (>= 0.8.1)
     pg (1.4.3)
     photoswipe-rails (4.1.2)
     public_suffix (5.0.0)
-    puma (5.6.5)
-      nio4r (~> 2.0)
     racc (1.6.0)
     rack (2.2.4)
     rack-mini-profiler (2.3.4)
@@ -437,10 +438,10 @@ DEPENDENCIES
   omniauth-google-oauth2
   omniauth-rails_csrf_protection (~> 1.0, >= 1.0.1)
   pagy (~> 4.1)
+  passenger (>= 5.3.2)
   pg
   photoswipe-rails (~> 4.1, >= 4.1.2)
   populator!
-  puma (~> 5.1, >= 5.1.1)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1)
   rails_warden
