@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base # For APIs, you may want to
   #rescue_from NoMethodError, with: :errors_stop
   #  rescue_from ActionDispatch::Cookies::CookieOverflow, with: :error_stop
 
-  SITE_NAME = 'Tipping point'
+  SITE_NAME = 'groupmerch.ca'
   add_breadcrumb SITE_NAME, :root_path
 
   def errors_stop
