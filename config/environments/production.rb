@@ -119,15 +119,15 @@ Rails.application.configure do
  
  
  config.action_mailer.delivery_method = :smtp
- host = 'http://ec2-3-145-86-72.us-east-2.compute.amazonaws.com' #replace with your own url
+ host = 'https://www.groupmerch.ca' #replace with your own url
  config.action_mailer.default_url_options = { host: host }
 
 # SMTP settings for gmail
  config.action_mailer.smtp_settings = {
   :address              => "smtp.gmail.com",
   :port                 => 587,
-  :user_name            => "jguerra@jginfosys.com",
-  :password             => "qxtjbullyfghlzun",
+  :user_name            => Rails.application.credentials[:SMTP_USER_NAME],
+  :password             => Rails.application.credentials[:SMTP_PASSWORD],
   :authentication       => "plain",
   :enable_starttls_auto => true
  }
