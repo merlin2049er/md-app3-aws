@@ -2,7 +2,9 @@
 
 config = {
   host:
-    'https://paas:f49902c6629cd3282b0d3b86c1610c65@oin-us-east-1.searchly.com',
+#    'https://paas:f49902c6629cd3282b0d3b86c1610c65@oin-us-east-1.searchly.com',
+     'https://18.189.25.159', # aws elasticsearch ec2 vm
+  
   transport_options: { request: { timeout: 5 } }
 }
 
