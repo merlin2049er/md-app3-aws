@@ -151,7 +151,7 @@ gem 'omniauth-rails_csrf_protection', '~> 1.0', '>= 1.0.1'
 
 #gem 'activemerchant'
 #gem 'active_shipping'
-
+gem "aws-sdk-s3", require: false
 gem "passenger", ">= 5.3.2", require: "phusion_passenger/rack_handler"
 
 group :development, :test do

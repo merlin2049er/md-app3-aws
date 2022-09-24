@@ -1,0 +1,18 @@
+
+<% if @photo.size > 0 %>
+
+
+    <% @photo.each do | p| %>
+
+
+
+<a href = ""  >
+             <%= image_tag p, width: '150' ,height: '150', align: 'top %>
+
+  
+</a>
+
+<% end %>
+
+
+<% end %>

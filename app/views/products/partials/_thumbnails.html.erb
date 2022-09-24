@@ -5,8 +5,8 @@
 
 
 
-<a href = "<%=  p.uri %>"  >
-  <img src="<%= p.uri %> "   width="150" height="150" align="top" >
+<a href = "<%= p.file&.service_url %>"  >
+   <%= image_tag p.file&.service_url, width: "150", height: "150", align: "top" %>
 </a>
 
 <% end %>
