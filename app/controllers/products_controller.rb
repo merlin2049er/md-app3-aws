@@ -270,6 +270,7 @@ class ProductsController < ApplicationController
       :courier,
       :courierurl,
       :brand,
+      :main_pic,
       photos_attributes: %i[product_id file done _destroy]
 
 

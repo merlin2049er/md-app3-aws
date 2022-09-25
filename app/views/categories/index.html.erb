@@ -32,11 +32,13 @@
 
             <h5><%= truncate(category.name )  %></h5>
 
-        <img src="<%= category.picurl  %>" alt="<%= truncate(category.name ) %>">
+        <img src="<%= category.pic.service_url  %>" alt="<%= truncate(category.name ) %>" height='250' width='250'>
 </a>
 
 <% if user_signed_in? && @user.admin %>
-  <%= link_to 'Edit', edit_category_path(category) %>
+<br>
+  <%= link_to 'Edit', edit_category_path(category) %> |   <%= link_to 'Destroy', category_path(category),   method: :delete,
+              data: { confirm: 'Are you sure?' } %> </td>
   <% end %>
       </div>
 

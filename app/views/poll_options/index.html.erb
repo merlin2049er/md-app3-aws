@@ -37,8 +37,8 @@
         <td><%= poll_option.poll %></td>
 
 
-        <td><%= poll_option.poll_url_enabled %></td>
-        <td><%= poll_option.poll_url %></td>
+       <!--  <td><%#= poll_option.poll_url_enabled %></td> -->
+        <td><%= poll_option.pic.service_url %></td>
 
         <td><%= link_to 'Vote', poll_option %></td>
         <td><%= link_to 'Edit', edit_poll_option_path(poll_option) %></td>

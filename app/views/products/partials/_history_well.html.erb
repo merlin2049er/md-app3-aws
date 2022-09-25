@@ -10,7 +10,7 @@
      <%#  i.sub!("http://localhost:3000/products/", "") %>
      
      <%  i.sub!("www.groupmerch.ca", "" ) %>
-       <a href= <%= Product.find_by_title(i) %> >  <%= Product.find_by_title(i) %>   
+       <a href= "<%= Product.find_by_title(i) %>" > ?     
      </a>
 
     <% end %>

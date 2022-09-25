@@ -21,6 +21,7 @@ class Product < ActiveRecord::Base
   belongs_to :cart, optional: true
   belongs_to :category
   has_many :photos
+  has_one_attached :main_pic
   accepts_nested_attributes_for :photos,
                                 reject_if: :all_blank, allow_destroy: true
 

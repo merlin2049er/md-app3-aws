@@ -21,7 +21,7 @@
 
      <tr><%= polloption.poll   %>|<small><i> <%= polloption.description   %></i></small></tr>
        <% if  polloption.poll_url_enabled %>
-      <tr> <img src="<%= polloption.poll_url  %>" width="250" height="250" alt="polloption.poll"><br></tr>
+      <tr> <img src="<%= polloption.pic.service_url  %>" width="250" height="250" alt=<%= polloption.poll %>  ><br></tr>
 
       <% @polloption_sum = Voted.where(polloption_id: polloption.id).count %>
 
